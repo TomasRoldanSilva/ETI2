@@ -1,0 +1,6 @@
+.table-cell {
+    -fx-alignment: CENTER;
+}
+.button {
+    -fx-wrap-text: true; /* o false */
+}

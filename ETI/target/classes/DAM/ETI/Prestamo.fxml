@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #EADDFF; -fx-border-color: #4B0082; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAMeti.PrestamoController">
+    
+    <!-- Título -->
+    <Label layoutX="280.0" layoutY="27.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #4B0082;" text="Gestión de Préstamos" />
+    
+    <!-- Tabla para mostrar los préstamos -->
+    <TableView fx:id="tablaPrestamos" layoutX="50.0" layoutY="87.0" prefHeight="400.0" prefWidth="705.0">
+        <columns>
+            <TableColumn fx:id="colIdPrestamo" prefWidth="81.6" text="ID Petición">
+                <cellValueFactory>
+                    <PropertyValueFactory property="idPeticion" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colIdLibro" prefWidth="85.6" text="ID Libro">
+                <cellValueFactory>
+                    <PropertyValueFactory property="idLibro" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colNombreAlumno" prefWidth="133.6" text="Nombre Alumno">
+                <cellValueFactory>
+                    <PropertyValueFactory property="nombreAlumno" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colTituloLibro" prefWidth="131.2" text="Título Libro">
+                <cellValueFactory>
+                    <PropertyValueFactory property="tituloLibro" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colFechaPrestamo" prefWidth="98.4" text="Fecha Préstamo">
+                <cellValueFactory>
+                    <PropertyValueFactory property="fechaPrestamo" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colFechaDevolucion" prefWidth="104.0" text="Fecha Devolución">
+                <cellValueFactory>
+                    <PropertyValueFactory property="fechaDevolucion" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colNumeroCopias" prefWidth="68.8" text="Copias">
+                <cellValueFactory>
+                    <PropertyValueFactory property="numeroCopias" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <Button fx:id="btnEliminarPrestamo" alignment="CENTER" layoutX="253.0" layoutY="517.0" onAction="#handleEliminarPrestamo" prefHeight="25.0" prefWidth="293.0" style="-fx-background-color: #4B0082; -fx-text-fill: white;" text="Eliminar Prestamo" />
+   <Button layoutX="9.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleBackButtonAction" style="-fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Atrás" />
+   <Button layoutX="54.0" layoutY="9.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleInicioButtonAction" prefHeight="18.0" prefWidth="45.0" style="-fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Inicio" />
+   
+</AnchorPane>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: EADDFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAMeti.InicioController">
+   <children>
+      <!-- Botón Alumno -->
+      <Button fx:id="btnAlumno" layoutX="512.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleAlumnoButtonAction" prefHeight="162.0" prefWidth="244.0" style="-fx-background-color: D1C0EB; -fx-background-radius: 15;" text="ALUMNO">
+         <font>
+            <Font name="Comic Sans MS" size="31.0" />
+         </font>
+      </Button>
+
+      <!-- Botón Admin -->
+      <Button layoutX="512.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleAdminButtonAction" prefHeight="162.0" prefWidth="244.0" style="-fx-background-color: D1C0EB; -fx-background-radius: 15;" text="ADMIN">
+         <font>
+            <Font name="Comic Sans MS" size="31.0" />
+         </font>
+      </Button>
+
+      <!-- Imagen -->
+      <ImageView fitHeight="443.0" fitWidth="451.0" layoutX="36.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/1.png" />
+         </image>
+      </ImageView>
+
+      <!-- Título principal -->
+      <Text layoutX="118.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BIENVENIDO A TU BIBLIOTECA">
+         <font>
+            <Font name="Comic Sans MS" size="35.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

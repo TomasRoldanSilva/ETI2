@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: EADDFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAMeti.AlumnoController">
+   <children>
+      <!-- Botón Registro -->
+      <Button fx:id="registroButton" layoutX="41.0" layoutY="81.0" mnemonicParsing="false" onAction="#abrirRegistro" prefHeight="140.0" prefWidth="233.0" style="-fx-background-radius: 15; -fx-background-color: D1C0EB;" text="REGISTRO">
+         <font>
+            <Font name="Comic Sans MS" size="31.0" />
+         </font>
+      </Button>
+
+      <!-- Imagen -->
+      <ImageView fitHeight="460.0" fitWidth="479.0" layoutX="302.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/2.png" />
+         </image>
+      </ImageView>
+
+      <!-- Botón Iniciar Sesión -->
+      <Button fx:id="registroButton1" layoutX="41.0" layoutY="234.0" mnemonicParsing="false" onAction="#abrirLogin" prefHeight="140.0" prefWidth="233.0" style="-fx-background-radius: 15; -fx-background-color: D1C0EB;" text="INICIAR SESIÓN" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Comic Sans MS" size="31.0" />
+         </font>
+      </Button>
+
+      <!-- Botón FAQ -->
+      <Button layoutX="41.0" layoutY="387.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="233.0" style="-fx-background-radius: 15; -fx-background-color: D1C0EB;" text="FAQ'S">
+         <font>
+            <Font name="Comic Sans MS" size="31.0" />
+         </font>
+      </Button>
+
+      <!-- Botones Atrás e Inicio -->
+      <Button layoutX="8.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleBackButtonAction" style="-fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Atrás" />
+      <Button layoutX="53.0" layoutY="7.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleInicioButtonAction" prefHeight="18.0" prefWidth="45.0" style="-fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Inicio" />
+   </children>
+</AnchorPane>

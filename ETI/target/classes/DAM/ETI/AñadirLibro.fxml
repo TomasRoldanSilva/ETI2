@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="457.0" style="-fx-background-color: #EADDFF; -fx-border-color: #4B0082; -fx-border-width: 15;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAMeti.AgregarLibroController">
+    <children>
+        <HBox layoutX="10.0" layoutY="10.0" spacing="10">
+            <Button onAction="#handleBackButtonAction" style="-fx-background-color: transparent;">
+                <graphic>
+                    <ImageView fitHeight="24.0" fitWidth="24.0">
+                        <image>
+                            <Image url="@../img/flecha.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button onAction="#handleInicioButtonAction" style="-fx-background-color: transparent;">
+                <graphic>
+                    <ImageView fitHeight="24.0" fitWidth="24.0">
+                        <image>
+                            <Image url="@../img/casa.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </HBox>
+
+        <Label alignment="CENTER" layoutX="79.0" layoutY="33.0" prefHeight="48.0" prefWidth="300.0" style="-fx-font-weight: bold;" text="Añadir Nuevo Libro" textFill="#000000">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="79.0" layoutY="159.0" text="Título:" textFill="#000000" />
+        <TextField fx:id="txtTitulo" layoutX="79.0" layoutY="177.0" prefWidth="300.0" />
+
+        <Label layoutX="79.0" layoutY="231.0" text="Asignatura:" textFill="#000000" />
+        <TextField fx:id="txtAsignatura" layoutX="79.0" layoutY="248.0" prefWidth="300.0" />
+
+        <Label layoutX="79.0" layoutY="300.0" text="Curso:" textFill="#000000" />
+        <TextField fx:id="txtCurso" layoutX="79.0" layoutY="320.0" prefWidth="300.0" />
+
+        <Label layoutX="83.0" layoutY="371.0" text="Editorial:" textFill="#000000" />
+        <TextField fx:id="txtEditorial" layoutX="79.0" layoutY="389.0" prefWidth="300.0" />
+
+        <Label layoutX="83.0" layoutY="438.0" text="ISBN:" textFill="#000000" />
+        <TextField fx:id="txtIsbn" layoutX="79.0" layoutY="455.0" prefWidth="300.0" />
+
+        <Label layoutX="83.0" layoutY="504.0" text="Número de copias:" textFill="#000000" />
+        <TextField fx:id="txtNumeroDeCopias" layoutX="79.0" layoutY="522.0" prefWidth="300.0" />
+
+        <Button layoutX="154.0" layoutY="588.0" onAction="#guardarLibro" prefHeight="48.0" prefWidth="150.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Añadir Libro" />
+
+        <Label fx:id="lblStatus" layoutX="50.0" layoutY="430.0" textFill="#FF0000" />
+      <Label layoutX="77.0" layoutY="94.0" prefHeight="17.0" prefWidth="46.0" text="Id:" textFill="#000000" />
+      <TextField fx:id="txtId" layoutX="79.0" layoutY="111.0" prefWidth="300.0" />
+    </children>
+</AnchorPane>
