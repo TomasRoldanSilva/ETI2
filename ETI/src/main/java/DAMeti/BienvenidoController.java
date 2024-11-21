@@ -36,12 +36,27 @@ public class BienvenidoController {
     @FXML
     private void handleInicioButtonAction(ActionEvent event) {
         cambiarEscena((Stage) ((Node) event.getSource()).getScene().getWindow(), "/DAM/ETI/inicio.fxml");
-    }
+    }  
 
     @FXML
     private void handleConsultarCuentaAction(ActionEvent event) {
-        // Código para navegar a la pantalla de "Consultar mi cuenta"
-        cambiarEscena((Stage) ((Node) event.getSource()).getScene().getWindow(), "/DAM/ETI/consultarCuenta.fxml");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/DAM/ETI/Consultarmisdatos.fxml"));
+            Parent root = loader.load();
+
+            // Obtener el controlador de la nueva escena
+            ConsultarDatosController consultarDatosController = loader.getController();
+            consultarDatosController.setNombreAlumno(alumno.getNombre());  // Pasar el nombre del alumno
+
+            // Cambiar la escena
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Consultar Mis Datos");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarError("Error de carga", "No se pudo cargar la pantalla de Consultar Mis Datos.");
+        }
     }
 
     @FXML

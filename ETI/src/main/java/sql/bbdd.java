@@ -33,15 +33,15 @@ public class bbdd {
                         + ")";
                 statement.executeUpdate(createTableLibros);
 
-                // Crear tabla de alumnos
+             // Crear tabla de alumnos
                 String createTableAlumnos = "CREATE TABLE IF NOT EXISTS alumnos ("
                         + "id INT AUTO_INCREMENT PRIMARY KEY, "
                         + "nombre VARCHAR(50) NOT NULL, "
                         + "curso INT NOT NULL, "
                         + "nombre_madre_padre VARCHAR(50), "
                         + "nombre_tutor VARCHAR(50) NOT NULL, "
-                        + "usuario VARCHAR(50) NOT NULL"
-                      
+                        + "usuario VARCHAR(50) NOT NULL, "
+                        + "contrasena VARCHAR(255) NOT NULL" // Añadida columna contrasena
                         + ")";
                 statement.executeUpdate(createTableAlumnos);
 
@@ -58,6 +58,9 @@ public class bbdd {
                         + "FOREIGN KEY (id_libro) REFERENCES libros(id)"
                         + ")";
                 statement.executeUpdate(createTablePrestamo);
+                
+              
+
 
 
                 System.out.println("Tablas de libros, alumnos y préstamo creadas exitosamente.");
