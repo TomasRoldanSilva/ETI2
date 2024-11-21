@@ -231,7 +231,7 @@ public class LoginController {
     }
     @FXML
     private void handleBackButtonAction(ActionEvent event) {
-    	App.changeScene((Stage) ((Node) event.getSource()).getScene().getWindow(), "/DAM/ETI/inicio.fxml");
+    	App.changeScene((Stage) ((Node) event.getSource()).getScene().getWindow(), "/DAM/ETI/alumno1.fxml");
 
     }
 

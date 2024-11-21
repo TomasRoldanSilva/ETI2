@@ -277,13 +277,10 @@ public class LibroService {
     // Go back to the previous screen
     @FXML
     private void handleBackButtonAction(ActionEvent event) {
-        Scene previousScene = App.popScene();
-        if (previousScene != null) {
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(previousScene);
-            stage.show();
+    	App.changeScene((Stage) ((Node) event.getSource()).getScene().getWindow(), "/DAM/ETI/admin2.fxml");
+
         }
-    }
+    
 
     // Go to the main menu
     @FXML
