@@ -28,7 +28,7 @@ import java.sql.Statement;
 import Modelo.Libro;
 import sql.conexion; 
 
-public class LibroService {
+public class GestionarLibroController {
 
     @FXML
     private TableView<Libro> tablaLibros;

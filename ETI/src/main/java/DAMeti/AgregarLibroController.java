@@ -28,9 +28,9 @@ public class AgregarLibroController {
     @FXML
     private Label lblStatus;
 
-    private LibroService libroService;
+    private GestionarLibroController libroService;
 
-    public void setLibroService(LibroService libroService) {
+    public void setLibroService(GestionarLibroController libroService) {
         this.libroService = libroService;
     }
 

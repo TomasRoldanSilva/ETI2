@@ -76,7 +76,7 @@ public class Admin2Controller {
             Parent root = loader.load();
 
             // Get the LibroService controller and call cargarLibros
-            LibroService controller = loader.getController();
+            GestionarLibroController controller = loader.getController();
             controller.cargarLibros();
 
             // Create a new stage and set the scene
