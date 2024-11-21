@@ -15,7 +15,7 @@ import java.util.Stack;
  */
 public class App extends Application {
 	
-	//hola
+	//prueba
 
     private static Stack<Scene> sceneHistory = new Stack<>();
 
