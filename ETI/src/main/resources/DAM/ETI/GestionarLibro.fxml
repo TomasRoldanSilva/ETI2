@@ -5,34 +5,16 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="929.0" style="-fx-background-color: #EADDFF; -fx-border-color: #4B0082; -fx-border-width: 15;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAMeti.LibroService">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #EADDFF; -fx-border-color: #4B0082; -fx-border-width: 15;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAMeti.LibroService">
     <children>
         <!-- HBox para los botones de navegación -->
         <HBox layoutX="10.0" layoutY="10.0" spacing="10">
-            <Button onAction="#handleBackButtonAction" style="-fx-background-color: transparent;">
-                <graphic>
-                    <ImageView fitHeight="24.0" fitWidth="24.0">
-                        <image>
-                            <Image url="@../img/flecha.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button onAction="#handleInicioButtonAction" style="-fx-background-color: transparent;">
-                <graphic>
-                    <ImageView fitHeight="24.0" fitWidth="24.0">
-                        <image>
-                            <Image url="@../img/casa.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
+            <Button onAction="#handleBackButtonAction" style="-fx-background-color: transparent;" />
+            <Button onAction="#handleInicioButtonAction" style="-fx-background-color: transparent;" />
         </HBox>
 
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="350.0" layoutY="50.0" prefHeight="48.0" prefWidth="303.0" style="-fx-font-weight: bold;" text="Gestión de Libros" textAlignment="CENTER" textFill="#000000">
@@ -46,24 +28,26 @@
         <Button layoutX="260.0" layoutY="98.0" onAction="#buscarPorID" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 10px 20px;" text="Buscar" />
 
         <!-- Tabla de Libros -->
-        <TableView fx:id="tablaLibros" layoutX="28.0" layoutY="150.0" prefHeight="350.0" prefWidth="871.0">
+        <TableView fx:id="tablaLibros" layoutX="28.0" layoutY="150.0" prefHeight="350.0" prefWidth="748.0">
             <columns>
                 <TableColumn fx:id="txtId" prefWidth="50.0" text="ID" />
-                <TableColumn fx:id="txtTitulo" prefWidth="131.33332061767578" text="Título" />
-                <TableColumn fx:id="txtAsignatura" prefWidth="132.6666717529297" text="Asignatura" />
-                <TableColumn fx:id="txtCurso" prefWidth="128.00006103515625" text="Curso" />
-                <TableColumn fx:id="txtIsbn" prefWidth="147.33334350585938" text="Isbn" />
-                <TableColumn fx:id="txtEditorial" prefWidth="129.33331298828125" text="Editorial" />
-            <TableColumn fx:id="txtNumeroDeCopias" prefWidth="149.33339436848962" text="Numero de copias" />
+                <TableColumn fx:id="txtTitulo" prefWidth="97.55553436279297" text="Título" />
+                <TableColumn fx:id="txtAsignatura" prefWidth="118.4444580078125" text="Asignatura" />
+                <TableColumn fx:id="txtCurso" prefWidth="100.66668701171875" text="Curso" />
+                <TableColumn fx:id="txtIsbn" prefWidth="130.0" text="Isbn" />
+                <TableColumn fx:id="txtEditorial" prefWidth="125.333251953125" text="Editorial" />
+            <TableColumn fx:id="txtNumeroDeCopias" prefWidth="123.3333740234375" text="Numero de copias" />
             </columns>
         </TableView>
 
         <!-- Botones de Añadir, Modificar y Eliminar para la gestión de libros -->
-        <Button id="añadirlibro" layoutX="144.0" layoutY="520.0" onAction="#anadirLibro" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Añadir" />
-        <Button layoutX="406.0" layoutY="520.0" onAction="#modificarLibro" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Modificar" />
-        <Button layoutX="653.0" layoutY="520.0" onAction="#eliminarLibro" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Eliminar" />
+        <Button id="añadirlibro" layoutX="90.0" layoutY="520.0" onAction="#anadirLibro" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Añadir" />
+        <Button layoutX="352.0" layoutY="520.0" onAction="#modificarLibro" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Modificar" />
+        <Button layoutX="599.0" layoutY="520.0" onAction="#eliminarLibro" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Eliminar" />
 
         <!-- Mensaje de estado para errores o confirmaciones -->
         <Label fx:id="lblMensaje" layoutX="50.0" layoutY="490.0" textFill="#FF0000" />
+      <Button layoutX="19.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleBackButtonAction" style="-fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Atrás" />
+      <Button layoutX="64.0" layoutY="20.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleInicioButtonAction" prefHeight="18.0" prefWidth="45.0" style="-fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Inicio" />
     </children>
 </AnchorPane>
