@@ -72,12 +72,12 @@
         <!-- Tabla de Libros centrada -->
         <TableView fx:id="tablaLibros" layoutX="51.0" layoutY="220.0" prefHeight="250.0" prefWidth="700.0">
             <columns>
-                <TableColumn fx:id="colTitulo" prefWidth="128.8" text="Título" />
-                <TableColumn fx:id="colAsignatura" prefWidth="121.6" text="Asignatura" />
-                <TableColumn fx:id="colCurso" prefWidth="98.4" text="Curso" />
-                <TableColumn fx:id="colEditorial" prefWidth="108.8" text="Editorial" />
-                <TableColumn fx:id="colIsbn" prefWidth="108.0" text="ISBN" />
-                <TableColumn fx:id="colCopias" prefWidth="134.4" text="Copias" />
+                <TableColumn fx:id="colTitulo" prefWidth="128.8" style="-fx-alignment: CENTER;" text="Título" />
+                <TableColumn fx:id="colAsignatura" prefWidth="121.6" style="-fx-alignment: CENTER;" text="Asignatura" />
+                <TableColumn fx:id="colCurso" prefWidth="98.4" style="-fx-alignment: CENTER;" text="Curso" />
+                <TableColumn fx:id="colEditorial" prefWidth="108.8" style="-fx-alignment: CENTER;" text="Editorial" />
+                <TableColumn fx:id="colIsbn" prefWidth="108.0" style="-fx-alignment: CENTER;" text="ISBN" />
+                <TableColumn fx:id="colCopias" prefWidth="134.4" style="-fx-alignment: CENTER;" text="Copias" />
             </columns>
         </TableView>
 

@@ -7,65 +7,48 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #F3E8FF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAMeti.ConsultarDatosController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #F3E8FF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAMeti.ConsultarDatosController">
    <children>
-       <!-- Título principal -->
-       <Label layoutX="20.0" layoutY="20.0" style="-fx-text-fill: #4B3869;" text="Consultar mis Datos">
-           <font>
-               <Font name="Comic Sans MS Bold" size="30.0" />
-           </font>
-           <effect>
-               <DropShadow color="#6E5E9A" offsetX="2" offsetY="2" radius="5" />
-           </effect>
-       </Label>
-       
-       <!-- Información del usuario -->
-       <VBox layoutX="20.0" layoutY="70.0" prefWidth="760.0" spacing="10">
-           <children>
-               <Label style="-fx-font-size: 20; -fx-text-fill: #5A3D80;" text="Información del Usuario" />
-               <HBox spacing="20" style="-fx-background-color: #D6B8FF; -fx-padding: 15; -fx-background-radius: 15; -fx-border-color: #B998D1; -fx-border-width: 2;">
-                   <children>
-                       <Label style="-fx-font-size: 16; -fx-text-fill: #4B3869;" text="Nombre: " />
-                       <Label fx:id="lblNombre" style="-fx-font-size: 16; -fx-text-fill: #4B3869;" text="John Doe" />
-                       <Label style="-fx-font-size: 16; -fx-text-fill: #4B3869;" text=" | " />
-                       <Label style="-fx-font-size: 16; -fx-text-fill: #4B3869;" text="Curso: " />
-                       <Label fx:id="lblCurso" style="-fx-font-size: 16; -fx-text-fill: #4B3869;" text="Curso Ejemplo" />
-                   </children>
-               </HBox>
-           </children>
-       </VBox>
-       
-       <!-- Libros solicitados -->
-       <VBox layoutX="51.0" layoutY="202.0" prefHeight="30.0" prefWidth="165.0" spacing="10">
+      <HBox alignment="TOP_CENTER" layoutX="15.0" layoutY="121.0" prefWidth="770.0" spacing="20" style="-fx-background-color: #D6B8FF; -fx-padding: 15; -fx-background-radius: 15;">
          <children>
-               <Label prefHeight="13.0" prefWidth="162.0" style="-fx-font-size: 20; -fx-text-fill: #5A3D80;" text="Libros Solicitados" />
+            <Label style="-fx-font-size: 16; -fx-text-fill: #4B3869;" text="Nombre: " />
+            <Label fx:id="lblNombre" style="-fx-font-size: 16; -fx-text-fill: #4B3869;" text="John Doe">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font></Label>
+            <Label text=" | " />
+            <Label style="-fx-font-size: 16; -fx-text-fill: #4B3869;" text="Curso: " />
+            <Label fx:id="lblCurso" style="-fx-font-size: 16; -fx-text-fill: #4B3869;" text="Curso Ejemplo" />
          </children>
-       </VBox>
-       
-       <!-- Tabla de libros solicitados -->
-       <TableView fx:id="tblLibrosSolicitados" layoutX="10.0" layoutY="253.0" prefHeight="327.0" prefWidth="326.0" style="-fx-background-color: #F1D7FF; -fx-background-radius: 15; -fx-border-radius: 15;">
-           <columns>
-               <TableColumn fx:id="colTituloSolicitado" text="Título" prefWidth="125.0" />
-               <TableColumn fx:id="colFechaSolicitud" text="Fecha de Solicitud" prefWidth="160.0" />
-           </columns>
-       </TableView>
-       
-       <!-- Libros en posesión -->
-       <VBox layoutX="412.0" layoutY="202.0" prefHeight="30.0" prefWidth="165.0" spacing="10">
-         <children>
-               <Label prefHeight="13.0" prefWidth="162.0" style="-fx-font-size: 20; -fx-text-fill: #5A3D80;" text="Libros en Posesión" />
-         </children>
-       </VBox>
-       
-       <!-- Tabla de libros en posesión -->
-       <TableView fx:id="tblLibrosPosesion" layoutX="393.0" layoutY="253.0" prefHeight="327.0" prefWidth="387.0" style="-fx-background-color: #F1D7FF; -fx-background-radius: 15; -fx-border-radius: 15;">
-           <columns>
-               <TableColumn fx:id="colTituloPosesion" text="Título" prefWidth="127.0" />
-               <TableColumn fx:id="colFechaEntrega" text="Fecha de Entrega" prefWidth="160.0" />
-           </columns>
-       </TableView>
+      </HBox>
+      <Label layoutX="255.0" layoutY="18.0" style="-fx-text-fill: #4B3869;" text="Consultar mis Datos">
+         <font>
+            <Font name="Comic Sans MS Bold" size="30.0" />
+         </font>
+         <effect>
+            <DropShadow color="#6E5E9A" offsetX="2" offsetY="2" radius="5" />
+         </effect>
+      </Label>
+      <TableView fx:id="tblLibrosSolicitados" layoutX="22.0" layoutY="253.0" prefHeight="330.0" prefWidth="755.0">
+         <columns>
+            <TableColumn fx:id="colTituloSolicitado" prefWidth="218.0000228881836" style="-fx-alignment: CENTER;" text="Título" />
+            <TableColumn fx:id="colFechaSolicitud" prefWidth="308.6666564941406" style="-fx-alignment: CENTER;" text="Fecha de Solicitud" />
+            <TableColumn fx:id="colFechaDevolucion" prefWidth="226.66664632161462" style="-fx-alignment: CENTER;" text="Fecha de Devolución Prevista" />
+         </columns>
+      </TableView>
+      <Label layoutX="269.0" layoutY="70.0" text="Información del Alumno">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="301.0" layoutY="195.0" text="Libros en Posesión">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="5.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleBackButtonAction" style="-fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Atrás" />
+      <Button layoutX="50.0" layoutY="5.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleInicioButtonAction" prefHeight="18.0" prefWidth="45.0" style="-fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Inicio" />
    </children>
 </AnchorPane>

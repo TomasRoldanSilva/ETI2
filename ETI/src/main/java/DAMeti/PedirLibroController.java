@@ -214,7 +214,7 @@ public class PedirLibroController {
     
     @FXML
     private void handleBackButtonAction(ActionEvent event) {
-    	App.changeScene((Stage) ((Node) event.getSource()).getScene().getWindow(), "/DAM/ETI/login.fxml");
+    	App.changeScene((Stage) ((Node) event.getSource()).getScene().getWindow(), "/DAM/ETI/bienvenidoAlumno.fxml");
 
     }
 

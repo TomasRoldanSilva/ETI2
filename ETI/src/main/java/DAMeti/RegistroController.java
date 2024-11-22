@@ -60,7 +60,7 @@ public class RegistroController implements Initializable {
 
         // Validación de campos vacíos
         if (nombreCompleto.isEmpty() || curso == null || nombreMadrePadre.isEmpty() || nombreTutor.isEmpty() || nombreUsuario.isEmpty() || contrasena.isEmpty()) {
-            mostrarAlerta("Error", "Por favor, rellena todos los campos obligatorios.");
+            mostrarAlerta("Error", "Por favor, rellena todos los campos obligatorios. Los que tienen un *.");
             return;
         }
 

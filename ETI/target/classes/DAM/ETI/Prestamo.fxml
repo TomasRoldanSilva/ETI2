@@ -13,39 +13,39 @@
     <Label layoutX="280.0" layoutY="27.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #4B0082;" text="Gestión de Préstamos" />
     
     <!-- Tabla para mostrar los préstamos -->
-    <TableView fx:id="tablaPrestamos" layoutX="50.0" layoutY="87.0" prefHeight="400.0" prefWidth="705.0">
+    <TableView fx:id="tablaPrestamos" layoutX="50.0" layoutY="87.0" prefHeight="400.0" prefWidth="705.0" style="-fx-alignment: CENTER;">
         <columns>
-            <TableColumn fx:id="colIdPrestamo" prefWidth="81.6" text="ID Petición">
+            <TableColumn fx:id="colIdPrestamo" prefWidth="81.6" style="-fx-alignment: CENTER;" text="ID Petición">
                 <cellValueFactory>
                     <PropertyValueFactory property="idPeticion" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="colIdLibro" prefWidth="85.6" text="ID Libro">
+            <TableColumn fx:id="colIdLibro" prefWidth="85.6" style="-fx-alignment: CENTER;" text="ID Libro">
                 <cellValueFactory>
                     <PropertyValueFactory property="idLibro" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="colNombreAlumno" prefWidth="133.6" text="Nombre Alumno">
+            <TableColumn fx:id="colNombreAlumno" prefWidth="133.6" style="-fx-alignment: CENTER;" text="Nombre Alumno">
                 <cellValueFactory>
                     <PropertyValueFactory property="nombreAlumno" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="colTituloLibro" prefWidth="131.2" text="Título Libro">
+            <TableColumn fx:id="colTituloLibro" prefWidth="131.2" style="-fx-alignment: CENTER;" text="Título Libro">
                 <cellValueFactory>
                     <PropertyValueFactory property="tituloLibro" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="colFechaPrestamo" prefWidth="98.4" text="Fecha Préstamo">
+            <TableColumn fx:id="colFechaPrestamo" prefWidth="98.4" style="-fx-alignment: CENTER;" text="Fecha Préstamo">
                 <cellValueFactory>
                     <PropertyValueFactory property="fechaPrestamo" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="colFechaDevolucion" prefWidth="104.0" text="Fecha Devolución">
+            <TableColumn fx:id="colFechaDevolucion" prefWidth="104.0" style="-fx-alignment: CENTER;" text="Fecha Devolución">
                 <cellValueFactory>
                     <PropertyValueFactory property="fechaDevolucion" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="colNumeroCopias" prefWidth="68.8" text="Copias">
+            <TableColumn fx:id="colNumeroCopias" prefWidth="68.8" style="-fx-alignment: CENTER;" text="Copias">
                 <cellValueFactory>
                     <PropertyValueFactory property="numeroCopias" />
                 </cellValueFactory>

@@ -107,7 +107,6 @@ public class GestionarLibroController {
 
             // Set the list to the TableView
             tablaLibros.setItems(listaLibros);
-            lblMensaje.setText("Libros cargados correctamente.");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -205,7 +204,14 @@ public class GestionarLibroController {
         // Verificar que haya un libro seleccionado
         Libro libroSeleccionado = tablaLibros.getSelectionModel().getSelectedItem();
         if (libroSeleccionado == null) {
-            lblMensaje.setText("Seleccione un libro para modificar.");
+            // Crear una alerta de tipo WARNING
+            Alert alerta = new Alert(AlertType.WARNING);
+            alerta.setTitle("Selección de libro");
+            alerta.setHeaderText(null);  // No hay cabecera
+            alerta.setContentText("Seleccione un libro para modificar.");
+            
+            // Mostrar la alerta
+            alerta.showAndWait();
             return;
         }
 
@@ -240,7 +246,14 @@ public class GestionarLibroController {
         // Obtiene el libro seleccionado de la tabla
         Libro libroSeleccionado = tablaLibros.getSelectionModel().getSelectedItem();
         if (libroSeleccionado == null) {
-            lblMensaje.setText("Seleccione un libro para eliminar.");
+            // Crear una alerta de tipo WARNING
+            Alert alerta = new Alert(AlertType.WARNING);
+            alerta.setTitle("Selección de libro");
+            alerta.setHeaderText(null);  // No hay cabecera
+            alerta.setContentText("Seleccione un libro para eliminarlo.");
+            
+            // Mostrar la alerta
+            alerta.showAndWait();
             return;
         }
 

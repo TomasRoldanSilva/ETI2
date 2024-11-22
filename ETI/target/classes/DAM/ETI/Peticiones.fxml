@@ -23,32 +23,32 @@
     <!-- Tabla para mostrar las peticiones -->
     <TableView fx:id="tablaPeticiones" layoutX="50" layoutY="166.0" prefHeight="334.0" prefWidth="700.0">
         <columns>
-            <TableColumn fx:id="colId" prefWidth="50.0" text="ID">
+            <TableColumn fx:id="colId" prefWidth="50.0" style="-fx-alignment: CENTER;" text="ID">
                 <cellValueFactory>
                     <PropertyValueFactory property="id" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="colNombreAlumno" prefWidth="150.0" text="Nombre del Alumno">
+            <TableColumn fx:id="colNombreAlumno" prefWidth="150.0" style="-fx-alignment: CENTER;" text="Nombre del Alumno">
                 <cellValueFactory>
                     <PropertyValueFactory property="nombreAlumno" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="colCurso" prefWidth="100.0" text="Curso">
+            <TableColumn fx:id="colCurso" prefWidth="100.0" style="-fx-alignment: CENTER;" text="Curso">
                 <cellValueFactory>
                     <PropertyValueFactory property="curso" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="colIdLibro" prefWidth="100.0" text="ID Libro">
+            <TableColumn fx:id="colIdLibro" prefWidth="100.0" style="-fx-alignment: CENTER;" text="ID Libro">
                 <cellValueFactory>
                     <PropertyValueFactory property="idLibro" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="colTituloLibro" prefWidth="141.6" text="Título del Libro">
+            <TableColumn fx:id="colTituloLibro" prefWidth="141.6" style="-fx-alignment: CENTER;" text="Título del Libro">
                 <cellValueFactory>
                     <PropertyValueFactory property="tituloLibro" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="colIsbnLibro" prefWidth="156.8" text="ISBN del Libro">
+            <TableColumn fx:id="colIsbnLibro" prefWidth="156.8" style="-fx-alignment: CENTER;" text="ISBN del Libro">
                 <cellValueFactory>
                     <PropertyValueFactory property="isbnLibro" />
                 </cellValueFactory>

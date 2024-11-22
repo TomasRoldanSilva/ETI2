@@ -30,13 +30,13 @@
         <!-- Tabla de Libros -->
         <TableView fx:id="tablaLibros" layoutX="28.0" layoutY="150.0" prefHeight="350.0" prefWidth="748.0">
             <columns>
-                <TableColumn fx:id="txtId" prefWidth="50.0" text="ID" />
-                <TableColumn fx:id="txtTitulo" prefWidth="97.55553436279297" text="Título" />
-                <TableColumn fx:id="txtAsignatura" prefWidth="118.4444580078125" text="Asignatura" />
-                <TableColumn fx:id="txtCurso" prefWidth="100.66668701171875" text="Curso" />
-                <TableColumn fx:id="txtIsbn" prefWidth="130.0" text="Isbn" />
-                <TableColumn fx:id="txtEditorial" prefWidth="125.333251953125" text="Editorial" />
-            <TableColumn fx:id="txtNumeroDeCopias" prefWidth="123.3333740234375" text="Numero de copias" />
+                <TableColumn fx:id="txtId" prefWidth="50.0" style="-fx-alignment: CENTER;" text="ID" />
+                <TableColumn fx:id="txtTitulo" prefWidth="97.55553436279297" style="-fx-alignment: CENTER;" text="Título" />
+                <TableColumn fx:id="txtAsignatura" prefWidth="118.4444580078125" style="-fx-alignment: CENTER;" text="Asignatura" />
+                <TableColumn fx:id="txtCurso" prefWidth="100.66668701171875" style="-fx-alignment: CENTER;" text="Curso" />
+                <TableColumn fx:id="txtIsbn" prefWidth="130.0" style="-fx-alignment: CENTER;" text="Isbn" />
+                <TableColumn fx:id="txtEditorial" prefWidth="125.333251953125" style="-fx-alignment: CENTER;" text="Editorial" />
+            <TableColumn fx:id="txtNumeroDeCopias" prefWidth="123.3333740234375" style="-fx-alignment: CENTER;" text="Numero de copias" />
             </columns>
         </TableView>
 

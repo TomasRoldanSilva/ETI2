@@ -1,6 +1,10 @@
-.table-cell {
+/* Centrado de texto en todas las celdas de la tabla */
+.table-view .table-cell {
     -fx-alignment: CENTER;
 }
+
+/* Centrado de texto para todos los botones */
 .button {
     -fx-wrap-text: true; /* o false */
+    -fx-alignment: CENTER;
 }
