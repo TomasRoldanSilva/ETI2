@@ -6,49 +6,50 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="600.0" style="-fx-background-color: #EADDFF; -fx-border-color: #4B0082; -fx-border-width: 10;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAMeti.ModificarLibroController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="360.0" style="-fx-background-color: #EADDFF; -fx-border-color: #4B0082; -fx-border-width: 10;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAMeti.ModificarLibroController">
     <children>
 
         <!-- Título de la ventana -->
-        <Label alignment="CENTER" layoutX="150.0" layoutY="20.0" prefHeight="48.0" prefWidth="300.0" style="-fx-font-weight: bold;" text="Modificar Libro" textAlignment="CENTER" textFill="#000000">
+        <Label alignment="CENTER" layoutX="30.0" layoutY="31.0" prefHeight="48.0" prefWidth="300.0" style="-fx-font-weight: bold;" text="Modificar Libro" textAlignment="CENTER" textFill="#000000">
             <font>
                 <Font size="24.0" />
             </font>
         </Label>
 
         <!-- Campo de texto para ID (no editable) -->
-        <Label layoutX="50.0" layoutY="90.0" text="ID:" />
-        <TextField fx:id="txtId" layoutX="157.0" layoutY="86.0" prefWidth="200.0" />
+        <Label layoutX="37.0" layoutY="91.0" text="ID:" />
+        <TextField fx:id="txtId" layoutX="33.0" layoutY="111.0" prefHeight="25.0" prefWidth="292.0" style="-fx-background-radius: 15;" />
 
         <!-- Campo de texto para Título -->
-        <Label layoutX="50.0" layoutY="130.0" text="Título:" />
-        <TextField fx:id="txtTitulo" layoutX="157.0" layoutY="126.0" prefWidth="200.0" />
+        <Label layoutX="35.0" layoutY="140.0" text="Título:" />
+        <TextField fx:id="txtTitulo" layoutX="33.0" layoutY="160.0" prefHeight="25.0" prefWidth="292.0" style="-fx-background-radius: 15;" />
 
         <!-- Campo de texto para Asignatura -->
-        <Label layoutX="50.0" layoutY="170.0" text="Asignatura:" />
-        <TextField fx:id="txtAsignatura" layoutX="157.0" layoutY="166.0" prefWidth="200.0" />
+        <Label layoutX="38.0" layoutY="188.0" text="Asignatura:" />
+        <TextField fx:id="txtAsignatura" layoutX="33.0" layoutY="209.0" prefHeight="25.0" prefWidth="292.0" style="-fx-background-radius: 15;" />
 
         <!-- Campo de texto para Curso -->
-        <Label layoutX="50.0" layoutY="210.0" text="Curso:" />
-        <TextField fx:id="txtCurso" layoutX="157.0" layoutY="206.0" prefWidth="200.0" />
+        <Label layoutX="38.0" layoutY="240.0" text="Curso:" />
+        <TextField fx:id="txtCurso" layoutX="33.0" layoutY="259.0" prefHeight="25.0" prefWidth="292.0" style="-fx-background-radius: 15;" />
 
         <!-- Campo de texto para ISBN -->
-        <Label layoutX="50.0" layoutY="250.0" text="ISBN:" />
-        <TextField fx:id="txtIsbn" layoutX="157.0" layoutY="246.0" prefWidth="200.0" />
+        <Label layoutX="37.0" layoutY="289.0" text="ISBN:" />
+        <TextField fx:id="txtIsbn" layoutX="33.0" layoutY="307.0" prefHeight="25.0" prefWidth="292.0" style="-fx-background-radius: 15;" />
 
         <!-- Campo de texto para Editorial -->
-        <Label layoutX="50.0" layoutY="290.0" text="Editorial:" />
-        <TextField fx:id="txtEditorial" layoutX="157.0" layoutY="286.0" prefWidth="200.0" />
+        <Label layoutX="36.0" layoutY="337.0" text="Editorial:" />
+        <TextField fx:id="txtEditorial" layoutX="33.0" layoutY="356.0" prefHeight="25.0" prefWidth="292.0" style="-fx-background-radius: 15;" />
 
         <!-- Campo de texto para Número de Copias -->
-        <Label layoutX="45.0" layoutY="329.0" text="Número de Copias:" />
-        <TextField fx:id="txtNumeroDeCopias" layoutX="157.0" layoutY="325.0" prefWidth="200.0" />
+        <Label layoutX="37.0" layoutY="387.0" text="Número de Copias:" />
+        <TextField fx:id="txtNumeroDeCopias" layoutX="33.0" layoutY="406.0" prefHeight="25.0" prefWidth="292.0" style="-fx-background-radius: 15;" />
 
         <!-- Botón para guardar cambios -->
-        <Button layoutX="405.0" layoutY="192.0" onAction="#guardarCambios" prefHeight="35.0" prefWidth="150.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Guardar Cambios" />
+        <Button layoutX="191.0" layoutY="461.0" onAction="#guardarCambios" prefHeight="48.0" prefWidth="133.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Guardar Cambios" />
 
         <!-- Mensaje de estado para errores o confirmaciones -->
-        <Label fx:id="lblMensaje" layoutX="50.0" layoutY="370.0" textFill="#FF0000" />
+        <Label fx:id="lblMensaje" layoutX="-11.0" layoutY="478.0" textFill="#FF0000" />
+      <Button fx:id="btnCancelar" layoutX="36.0" layoutY="461.0" onAction="#cancelar" prefHeight="48.0" prefWidth="133.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Cancelar" />
 
     </children>
 </AnchorPane>

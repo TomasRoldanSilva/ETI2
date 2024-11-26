@@ -125,6 +125,14 @@ public class PeticionesController {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
+    
+    private void mostrarAlertaBien(String titulo, String mensaje) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
     @FXML
     private void buscarPorId(ActionEvent event) {
         String id = searchIdField.getText(); // Obtener el ID ingresado por el usuario
@@ -252,7 +260,7 @@ public class PeticionesController {
             // Cargar la lista de préstamos después de la actualización y asegurarnos que la tabla de préstamos se cargue correctamente
             cargarPrestamos();
 
-            mostrarAlerta("Éxito", "El préstamo ha sido validado con éxito.");
+            mostrarAlertaBien("Éxito", "El préstamo ha sido validado con éxito.");
             mostrarConfirmacion(event);
 
         } catch (SQLException e) {

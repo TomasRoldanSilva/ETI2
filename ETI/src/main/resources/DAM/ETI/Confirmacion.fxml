@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #EADDFF; -fx-border-color: #4B0082; -fx-border-width: 5; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAMeti.ConfirmacionController">
 
     <!-- Título principal con mensaje de confirmación -->
-    <Label fx:id="mensajeConfirmacion" layoutX="50" layoutY="100" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #4B0082; -fx-padding: 10;" text="¡Gracias por su solicitud!" />
+    <Label fx:id="mensajeConfirmacion" layoutX="249.0" layoutY="85.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #4B0082; -fx-padding: 10;" text="¡Gracias por su solicitud!" />
 
     <!-- Mensaje adicional con número de solicitud -->
-    <Label layoutX="50" layoutY="150" style="-fx-font-size: 18px; -fx-text-fill: #4B0082; -fx-padding: 10;" text="Por favor, pase por el mostrador para recoger su libro." />
+    <Label layoutX="175.0" layoutY="164.0" style="-fx-font-size: 18px; -fx-text-fill: #4B0082; -fx-padding: 10;" text="Por favor, pase por el mostrador para recoger su libro." />
 
     <!-- Mensaje adicional en letras grandes -->
-    <Label layoutX="50" layoutY="300" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #4B0082; -fx-padding: 20;" text="DISFRUTA DE LA LECTURA" />
+    <Label alignment="TOP_CENTER" layoutX="149.0" layoutY="252.0" prefHeight="87.0" prefWidth="491.0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #4B0082; -fx-padding: 20;" text="DISFRUTA DE LA LECTURA" />
 
     <!-- Botón Aceptar morado oscuro -->
-    <Button text="Aceptar" layoutX="320" layoutY="400" onAction="#aceptarAction" style="-fx-background-color: #4B0082; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10;" />
+    <Button layoutX="355.0" layoutY="397.0" onAction="#aceptarAction" style="-fx-background-color: #4B0082; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10; -fx-background-radius: 15;" text="Aceptar" />
 </AnchorPane>

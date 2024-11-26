@@ -2,6 +2,8 @@ package DAMeti;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import Modelo.Libro;
 import sql.conexion;
@@ -27,8 +29,12 @@ public class AgregarLibroController {
     private TextField txtNumeroDeCopias;
     @FXML
     private Label lblStatus;
+    @FXML
+    private Button btnCancelar;
 
     private GestionarLibroController libroService;
+    
+    private boolean modificado = false;
 
     public void setLibroService(GestionarLibroController libroService) {
         this.libroService = libroService;
@@ -99,5 +105,12 @@ public class AgregarLibroController {
     @FXML
     private void handleInicioButtonAction() {
         lblStatus.setText("Botón 'Inicio' presionado.");
+    }
+    
+    @FXML
+    private void cancelar() {
+        modificado = false;  // Si se cancela, no se considera ninguna modificación
+        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        stage.close();
     }
 }

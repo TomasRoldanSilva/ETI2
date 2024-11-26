@@ -4,6 +4,7 @@ import Modelo.Libro;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import sql.conexion;
 import java.sql.Connection;
@@ -26,12 +27,15 @@ public class ModificarLibroController {
     private TextField txtIsbn;
     @FXML
     private TextField txtNumeroDeCopias;
+    @FXML
+    private Button btnCancelar;
 
     @FXML
     private Label lblMensaje;
 
     private Libro libro;
     private int originalId;  // Variable para almacenar el ID original
+    private boolean modificado = false;
 
     // Método para cargar el libro y su ID original
     public void setLibro(Libro libro) {
@@ -98,6 +102,12 @@ public class ModificarLibroController {
             lblMensaje.setText("Error: Verifique los campos numéricos.");
             lblMensaje.setStyle("-fx-text-fill: red;");
         }
+    }
+    @FXML
+    private void cancelar() {
+        modificado = false;  // Si se cancela, no se considera ninguna modificación
+        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        stage.close();
     }
 }
 

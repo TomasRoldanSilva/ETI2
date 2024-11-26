@@ -158,7 +158,7 @@ public class ConsultarDatosController {
 
     @FXML
     private void handleBackButtonAction(ActionEvent event) {
-        App.changeScene((Stage) ((Node) event.getSource()).getScene().getWindow(), "/DAM/ETI/bienvenidoAlumno.fxml");
+        App.changeScene((Stage) ((Node) event.getSource()).getScene().getWindow(), "/DAM/ETI/login.fxml");
 
     }
 

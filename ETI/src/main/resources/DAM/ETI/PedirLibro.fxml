@@ -59,7 +59,7 @@
         </Button>
 
         <!-- Botón Ver Todos los Libros -->
-        <Button fx:id="verTodosButton" layoutX="327.0" layoutY="485.0" onAction="#verTodosLibros" style="-fx-background-color: #4B0082; -fx-text-fill: white; -fx-font-size: 14px;" text="Ver Todos los Libros">
+        <Button fx:id="verTodosButton" layoutX="327.0" layoutY="485.0" onAction="#verTodosLibros" style="-fx-background-color: #4B0082; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 15;" text="Ver Todos los Libros">
             <font>
                 <Font name="Comic Sans MS" size="14.0" />
             </font>
