@@ -52,12 +52,12 @@
 				</TitledPane>
 				<TitledPane style="-fx-font-size: 16px;-fx-font-weight: bold;" text="¿Qué horario tiene la biblioteca?">
 					<content>
-						<Label text="La biblioteca estará abierta todos los días a la hora del recreo de 11 a 11.30h " wrapText="true" />
+						<Label text="La biblioteca estará abierta todos los días a la hora del recreo de 11 a 11.30h. " wrapText="true" />
 					</content>
 				</TitledPane>
 				<TitledPane style="-fx-font-size: 16px;-fx-font-weight: bold;" text="¿Cómo consultar mi historial de préstamos?">
 					<content>
-						<Label text="Dirígete a la sección 'Mi cuenta'y verás los libros que tienes en préstamo" wrapText="true" />
+						<Label text="Dirígete a la sección 'Mi cuenta'y verás los libros que tienes en préstamo." wrapText="true" />
 					</content>
 				</TitledPane>
 				<TitledPane style="-fx-font-size: 16px;-fx-font-weight: bold;" text="¿Qué sucede si no devuelvo un libro a tiempo?">
