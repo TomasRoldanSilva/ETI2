@@ -79,7 +79,7 @@ public class LoginController {
                 Alumno alumno = obtenerAlumno(usuario, contraseña); // Obtenemos el objeto Alumno
                 
                 if (alumno != null) {
-                    mostrarAlerta(AlertType.INFORMATION, "Verificación exitosa", "Hola, " + alumno.getNombre());
+                    mostrarAlerta(AlertType.INFORMATION, "Alumno identificado", "Hola, " + alumno.getNombre());
                     
                     // Cargar la vista del BienvenidoController
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/DAM/ETI/bienvenidoAlumno.fxml"));
@@ -104,7 +104,7 @@ public class LoginController {
                     }
                 }
             } else {
-                mostrarAlerta(AlertType.ERROR, "Credenciales incorrectas", "Usuario o contraseña incorrectos.");
+                mostrarAlerta(AlertType.ERROR, "Contraseña o usuario incorrectos", "Usuario o contraseña incorrectos.");
             }
         }
     }
