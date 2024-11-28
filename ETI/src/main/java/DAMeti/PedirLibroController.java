@@ -100,7 +100,6 @@ public class PedirLibroController {
         }
     }
 
-
     public void initialize() {
         colTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
         colAsignatura.setCellValueFactory(new PropertyValueFactory<>("asignatura"));
@@ -111,27 +110,26 @@ public class PedirLibroController {
     }
 
     @FXML
-    public void solicitarLibro() {
+    public void solicitarLibro(ActionEvent event) {
         Libro libroSeleccionado = tablaLibros.getSelectionModel().getSelectedItem();
 
         if (libroSeleccionado != null) {
             if (libroSeleccionado.getNumeroDeCopias() <= 0) {
                 // Si no hay copias disponibles, mostramos un mensaje de error
-                mostrarAlerta(Alert.AlertType.ERROR, "Libro No Disponible", 
-                              "Ahora mismo el libro no está disponible. Por favor consulte en el mostrador.");
+                mostrarAlerta(Alert.AlertType.ERROR, "Libro No Disponible",
+                        "Ahora mismo el libro no está disponible. Por favor consulte en el mostrador.");
             } else {
                 // Si hay copias disponibles, procesamos la solicitud
-                registrarPeticion(libroSeleccionado);
+                registrarPeticion(libroSeleccionado, event);
             }
         } else {
             mostrarAlerta(Alert.AlertType.ERROR, "Error", "Por favor, seleccione un libro antes de solicitarlo.");
         }
     }
 
-
-    private void registrarPeticion(Libro libro) {
+    private void registrarPeticion(Libro libro, ActionEvent event) {
         String sql = "INSERT INTO peticiones (nombre_alumno, curso, id_libro, titulo_libro, isbn_libro, fecha_peticion, numero_copias) " +
-                     "VALUES (?, ?, ?, ?, ?, ?, ?)";
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = dameConexion();
              PreparedStatement stmt = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {  // Recupera claves generadas
@@ -152,7 +150,7 @@ public class PedirLibroController {
                 int numeroPeticion = generatedKeys.getInt(1); // Recupera el número de la petición
 
                 // Llamamos a la pantalla de confirmación con el número de la petición y mensaje personalizado
-                mostrarPantallaConfirmacion("Su número de petición es: " + numeroPeticion );
+                mostrarPantallaConfirmacion("Su número de petición es: " + numeroPeticion, event);
             }
 
         } catch (SQLException e) {
@@ -161,6 +159,30 @@ public class PedirLibroController {
         }
     }
 
+    private void mostrarPantallaConfirmacion(String mensaje, ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/DAM/ETI/Confirmacion.fxml"));
+            Parent root = loader.load();
+
+            // Obtener el controlador de la pantalla de confirmación y establecer el mensaje
+            ConfirmacionController confirmacionController = loader.getController();
+            confirmacionController.setMensajeConfirmacion(mensaje);
+
+            // Mostrar la nueva ventana
+            Stage stage = new Stage();
+            stage.setTitle("Confirmación de Solicitud");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            // Cerrar la ventana actual usando el evento
+            Stage ventanaActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            ventanaActual.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta(AlertType.ERROR, "Error al mostrar la confirmación", "Hubo un problema al abrir la pantalla de confirmación.");
+        }
+    }
 
     private void mostrarAlerta(AlertType tipo, String titulo, String mensaje) {
         Alert alerta = new Alert(tipo);
@@ -184,50 +206,29 @@ public class PedirLibroController {
         tablaLibros.setItems(listaLibros);
     }
 
-    // Método para mostrar la pantalla de confirmación
-    private void mostrarPantallaConfirmacion(String mensaje) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/DAM/ETI/Confirmacion.fxml"));
-
-            Parent root = loader.load();
-
-            // Obtener el controlador de la pantalla de confirmación y establecer el mensaje
-            ConfirmacionController confirmacionController = loader.getController();
-            confirmacionController.setMensajeConfirmacion(mensaje);
-
-            // Mostrar la nueva ventana
-            Stage stage = new Stage();
-            stage.setTitle("Confirmación de Solicitud");
-            stage.setScene(new Scene(root));
-            stage.show();
-
-            // Cerrar la ventana actual
-            if (btnSolicitarLibro != null && btnSolicitarLibro.getScene() != null) {
-                btnSolicitarLibro.getScene().getWindow().hide();
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            mostrarAlerta(AlertType.ERROR, "Error al mostrar la confirmación", "Hubo un problema al abrir la pantalla de confirmación.");
-        }
-    }
-    
     @FXML
     private void handleBackButtonAction(ActionEvent event) {
-    	App.changeScene((Stage) ((Node) event.getSource()).getScene().getWindow(), "/DAM/ETI/login.fxml");
-
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/DAM/ETI/login.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-
     @FXML
-    private void handleInicioButtonAction(ActionEvent event) throws IOException {
-        // Cargar y mostrar la vista inicio.fxml
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/DAM/ETI/inicio.fxml"));
-        Parent inicioView = loader.load();
-        Scene inicioScene = new Scene(inicioView);
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(inicioScene);
-        stage.show();
+    private void handleInicioButtonAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/DAM/ETI/inicio.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
