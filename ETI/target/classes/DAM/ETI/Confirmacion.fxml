@@ -5,7 +5,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #EADDFF; -fx-border-color: #4B0082; -fx-border-width: 5; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAMeti.ConfirmacionController">
    <children>
@@ -27,6 +26,6 @@
       </ImageView>
 
       <!-- Botón Aceptar morado oscuro -->
-      <Button layoutX="128.0" layoutY="419.0" onAction="#aceptarAction" style="-fx-background-color: #4B0082; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10; -fx-background-radius: 15;" text="Aceptar" />
+      <Button layoutX="306.0" layoutY="408.0" onAction="#aceptarAction" style="-fx-background-color: #4B0082; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10; -fx-background-radius: 15;" text="Aceptar y Generar PDF" />
    </children>
 </AnchorPane>

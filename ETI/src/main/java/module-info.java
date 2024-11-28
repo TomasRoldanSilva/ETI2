@@ -1,4 +1,4 @@
-module Biblioteca.ETI {
+module ETI {
     requires javafx.controls;
     requires javafx.fxml;
 	requires java.sql;
