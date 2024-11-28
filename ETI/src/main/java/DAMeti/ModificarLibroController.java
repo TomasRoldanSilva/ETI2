@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import sql.conexion;
@@ -87,6 +88,13 @@ public class ModificarLibroController {
 
                 int filasActualizadas = stmt.executeUpdate();
                 if (filasActualizadas > 0) {
+                	// Mostrar alerta informativa
+                	Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                	alerta.setTitle("Modificación realizada");
+                	alerta.setHeaderText(null);
+                	alerta.setContentText("El libro ha sido modificado correctamente.");
+                	alerta.showAndWait();
+
                     lblMensaje.setText("Libro modificado correctamente.");
                     lblMensaje.setStyle("-fx-text-fill: green;");
                 } else {
@@ -107,6 +115,7 @@ public class ModificarLibroController {
             lblMensaje.setStyle("-fx-text-fill: red;");
         }
     }
+    
 
     @FXML
     private void cancelar() {
