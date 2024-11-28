@@ -94,12 +94,17 @@ public class AlumnoGestionController {
         }
         lblMensaje.setText("Alumno no encontrado.");
     }
-
+//metodo para modificar alumno 
     @FXML
     void modificarUsuario() {
-        Alumno alumnoSeleccionado = tablaUsuarios.getSelectionModel().getSelectedItem();
+    	Alumno alumnoSeleccionado = tablaUsuarios.getSelectionModel().getSelectedItem();
         if (alumnoSeleccionado == null) {
-            lblMensaje.setText("Seleccione un alumno para modificar.");
+            // Mostrar una alerta de error si no se selecciona un alumno
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Error");
+            alerta.setHeaderText("No se ha seleccionado ningún alumno");
+            alerta.setContentText("Por favor, selecciona un alumno de la tabla para modificar");
+            alerta.showAndWait();
             return;
         }
 
@@ -126,7 +131,7 @@ public class AlumnoGestionController {
                 actualizarAlumnoEnBD(alumnoSeleccionado);
                 tablaUsuarios.refresh();
                 
-                // Crear la alerta
+                // Crear la alerta para verificación 
                 Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                 alerta.setTitle("Modificación correcta");
                 alerta.setHeaderText(null);
@@ -135,9 +140,9 @@ public class AlumnoGestionController {
             } else {
                 // Si no se pudo obtener el alumno, mostrar un error
                 Alert alertaError = new Alert(Alert.AlertType.ERROR);
-                alertaError.setTitle("Error en la modificación");
-                alertaError.setHeaderText(null);
-                alertaError.setContentText("No se pudo modificar el alumno.");
+                alertaError.setTitle("Modificación de alumno");
+                alertaError.setHeaderText("No se ha seleccionado ningún alumno");
+                alertaError.setContentText("Seleccione un alumno para modificar ");
                 alertaError.showAndWait();
             }
         } catch (IOException e) {
@@ -145,7 +150,7 @@ public class AlumnoGestionController {
             lblMensaje.setText("Error al cargar el formulario de modificación.");
         }
     }
-
+//actualiza el alumno modificado en la bbdd
     private void actualizarAlumnoEnBD(Alumno alumno) {
         String sql = "UPDATE alumnos SET nombre = ?, curso = ?, nombre_madre_padre = ?, nombre_tutor = ?, usuario = ? WHERE id = ?";
         try (Connection connection = conexion.dameConexion();
@@ -167,14 +172,31 @@ public class AlumnoGestionController {
             lblMensaje.setText("Error al actualizar el alumno en la base de datos.");
         }
     }
+    
+    @FXML
+    void añadirAlumno() {
+        // Mostrar una alerta informativa
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("Información");
+        alerta.setHeaderText("La autonomía es un gran regalo ");
+        alerta.setContentText("Animalo a que se de de alta él mismo. ");
+        alerta.showAndWait(); // Esperar hasta que el usuario cierre la alerta
+    }
+
 
     @FXML
     void eliminarUsuario() {
-        Alumno alumnoSeleccionado = tablaUsuarios.getSelectionModel().getSelectedItem();
+    	Alumno alumnoSeleccionado = tablaUsuarios.getSelectionModel().getSelectedItem();
         if (alumnoSeleccionado == null) {
-            lblMensaje.setText("Seleccione un alumno para eliminar.");
+            // Mostrar una alerta de error si no se selecciona un alumno
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Selección de alumno");
+            alerta.setHeaderText("No se ha seleccionado ningún alumno");
+            alerta.setContentText("Por favor, selecciona un alumno de la tabla para eliminar");
+            alerta.showAndWait();
             return;
         }
+        
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "¿Está seguro de que desea eliminar este alumno?");
         alert.setHeaderText(null);

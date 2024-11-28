@@ -249,7 +249,7 @@ public class GestionarLibroController {
             // Crear una alerta de tipo WARNING
             Alert alerta = new Alert(AlertType.WARNING);
             alerta.setTitle("Selección de libro");
-            alerta.setHeaderText(null);  // No hay cabecera
+            alerta.setHeaderText("No se ha seleccionado ningún libro");  
             alerta.setContentText("Seleccione un libro para eliminarlo.");
             
             // Mostrar la alerta

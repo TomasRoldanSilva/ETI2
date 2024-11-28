@@ -39,7 +39,7 @@ public class AlumnoController {
 		// Crear una nueva escena con la vista de registro
 		Scene registroScene = new Scene(registroView);
 
-		// Obtener la ventana actual (Stage) y establecer la nueva escena
+		// Obtener la ventana actual  y establecer la nueva escena
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(registroScene);
 		stage.show();

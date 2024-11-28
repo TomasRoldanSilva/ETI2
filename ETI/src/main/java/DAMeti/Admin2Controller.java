@@ -53,7 +53,7 @@ public class Admin2Controller {
             AlumnoGestionController controller = loader.getController();
             controller.cargarDatos(); 
 
-            // Crear una nueva escena y mostrarla en un nuevo escenario
+            // abre la ventana Gestionar Alumnos 
             Stage stage = new Stage();
             stage.setTitle("Gestionar Alumnos");
             stage.setScene(new Scene(root));
@@ -71,26 +71,26 @@ public class Admin2Controller {
     @FXML
     private void handleGestionarLibroButtonAction(ActionEvent event) {
         try {
-            // Load the FXML file for managing books
+            // Carga el FXML de gestionarLibros 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/DAM/ETI/GestionarLibro.fxml"));
             Parent root = loader.load();
 
-            // Get the LibroService controller and call cargarLibros
+            
             GestionarLibroController controller = loader.getController();
             controller.cargarLibros();
 
-            // Create a new stage and set the scene
+          
             Stage stage = new Stage();
             stage.setTitle("Gestionar Libros");
             stage.setScene(new Scene(root));
             stage.show();
 //
-            // Close the current window
+           
             closeWindow(event);
 
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle errors appropriately, e.g., show an error dialog
+           
         }
     }
 

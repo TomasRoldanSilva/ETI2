@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #EADDFF; -fx-border-color: #4B0082; -fx-border-width: 15;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAMeti.AlumnoGestionController">
     <children>
-        <!-- HBox para alinear los botones a la izquierda -->
+        <!-- HBox para alinear los botones superiores a la izquierda -->
         <HBox layoutX="10.0" layoutY="10.0" spacing="10">
             <Button onAction="#handleBackButtonAction" style="-fx-background-color: transparent;" />
         </HBox>
@@ -38,9 +38,12 @@
             </columns>
         </TableView>
 
-        <!-- Botones Modificar y Eliminar centrados -->
-        <Button layoutX="262.0" layoutY="528.0" onAction="#modificarUsuario" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Modificar" />
-        <Button layoutX="441.0" layoutY="528.0" onAction="#eliminarUsuario" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Eliminar" />
+       <!-- Botones Añadir, Modificar y Eliminar centrados -->
+        <HBox layoutX="200.0" layoutY="528.0" spacing="20" alignment="CENTER">
+            <Button onAction="#añadirAlumno" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Añadir" />
+            <Button onAction="#modificarUsuario" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Modificar" />
+            <Button onAction="#eliminarUsuario" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Eliminar" />
+        </HBox>
 
         <!-- Mensaje de Error -->
         <Label fx:id="lblMensaje" layoutX="50.0" layoutY="500.0" textFill="#FF0000" />

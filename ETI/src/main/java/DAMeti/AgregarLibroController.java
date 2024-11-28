@@ -18,7 +18,7 @@ public class AgregarLibroController {
     @FXML
     private TextField txtAsignatura;
     @FXML
-    private ComboBox<Integer> comboCurso; // Cambio a ComboBox para el curso
+    private ComboBox<Integer> comboCurso; // Combobox para el curso lo mantenemos en todas las escenas 
     @FXML
     private TextField txtEditorial;
     @FXML
@@ -64,6 +64,7 @@ public class AgregarLibroController {
         try {
             int id = Integer.parseInt(idText);
             int numCopias = Integer.parseInt(numCopiasText);
+            //si los datos son correctos insertamos en bbdd
 
             try (Connection conn = conexion.dameConexion();
                  PreparedStatement stmt = conn.prepareStatement("INSERT INTO libros (id, titulo, asignatura, curso, editorial, isbn, numero_de_copias) VALUES (?, ?, ?, ?, ?, ?, ?)")) {

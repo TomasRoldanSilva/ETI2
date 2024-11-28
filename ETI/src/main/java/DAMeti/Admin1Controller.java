@@ -60,14 +60,14 @@ public class Admin1Controller {
             mensajeLabel.setText("Nombre o clave incorrectos");
         }
     }
-
+//este botón lleva a la pantalla anterior 
     @FXML
     private void handleBackButtonAction(ActionEvent event) {
     	App.changeScene((Stage) ((Node) event.getSource()).getScene().getWindow(), "/DAM/ETI/inicio.fxml");
 
     }
 
-
+//este metodo nos dirige al inicio
     @FXML
     private void handleInicioButtonAction(ActionEvent event) throws IOException {
         // Cargar y mostrar la vista inicio.fxml
