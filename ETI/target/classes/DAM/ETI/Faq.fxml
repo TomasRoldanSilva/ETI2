@@ -62,7 +62,7 @@
 				</TitledPane>
 				<TitledPane style="-fx-font-size: 16px;-fx-font-weight: bold;" text="¿Qué sucede si no devuelvo un libro a tiempo?">
 					<content>
-						<Label text="No podrás sacar libros durante quince días. " wrapText="true" />
+						<Label text="Se le comunicará a su tutor para que de un aviso a los padres. " wrapText="true" />
 					</content>
 				</TitledPane>
 			</panes>

@@ -2,6 +2,7 @@ package DAMeti;
 
 import Modelo.Libro;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
@@ -20,7 +21,7 @@ public class ModificarLibroController {
     @FXML
     private TextField txtAsignatura;
     @FXML
-    private TextField txtCurso;
+    private ComboBox<Integer> cmbCurso;
     @FXML
     private TextField txtEditorial;
     @FXML
@@ -35,7 +36,11 @@ public class ModificarLibroController {
 
     private Libro libro;
     private int originalId;  // Variable para almacenar el ID original
-    private boolean modificado = false;
+
+    public void initialize() {
+        // Agregar los valores al ComboBox
+        cmbCurso.getItems().addAll(1, 2, 3, 4, 5, 6);
+    }
 
     // Método para cargar el libro y su ID original
     public void setLibro(Libro libro) {
@@ -49,7 +54,7 @@ public class ModificarLibroController {
         txtId.setText(String.valueOf(libro.getId()));
         txtTitulo.setText(libro.getTitulo());
         txtAsignatura.setText(libro.getAsignatura());
-        txtCurso.setText(String.valueOf(libro.getCurso()));
+        cmbCurso.setValue(libro.getCurso());
         txtEditorial.setText(libro.getEditorial());
         txtIsbn.setText(libro.getIsbn());
         txtNumeroDeCopias.setText(String.valueOf(libro.getNumeroDeCopias()));
@@ -62,7 +67,7 @@ public class ModificarLibroController {
             libro.setId(Integer.parseInt(txtId.getText()));
             libro.setTitulo(txtTitulo.getText());
             libro.setAsignatura(txtAsignatura.getText());
-            libro.setCurso(Integer.parseInt(txtCurso.getText()));
+            libro.setCurso(cmbCurso.getValue());  // Obtener valor seleccionado del ComboBox
             libro.setEditorial(txtEditorial.getText());
             libro.setIsbn(txtIsbn.getText());
             libro.setNumeroDeCopias(Integer.parseInt(txtNumeroDeCopias.getText()));
@@ -71,14 +76,14 @@ public class ModificarLibroController {
                  PreparedStatement stmt = conn.prepareStatement(
                     "UPDATE libros SET id = ?, titulo = ?, asignatura = ?, curso = ?, editorial = ?, isbn = ?, numero_de_copias = ? WHERE id = ?")) {
 
-                stmt.setInt(1, libro.getId());               // Nuevo ID
+                stmt.setInt(1, libro.getId());
                 stmt.setString(2, libro.getTitulo());
                 stmt.setString(3, libro.getAsignatura());
                 stmt.setInt(4, libro.getCurso());
                 stmt.setString(5, libro.getEditorial());
                 stmt.setString(6, libro.getIsbn());
                 stmt.setInt(7, libro.getNumeroDeCopias());
-                stmt.setInt(8, originalId);                 // ID original para la búsqueda
+                stmt.setInt(8, originalId);
 
                 int filasActualizadas = stmt.executeUpdate();
                 if (filasActualizadas > 0) {
@@ -89,7 +94,6 @@ public class ModificarLibroController {
                     lblMensaje.setStyle("-fx-text-fill: red;");
                 }
 
-                // Cerrar la ventana tras la modificación
                 Stage stage = (Stage) lblMensaje.getScene().getWindow();
                 stage.close();
 
@@ -103,11 +107,10 @@ public class ModificarLibroController {
             lblMensaje.setStyle("-fx-text-fill: red;");
         }
     }
+
     @FXML
     private void cancelar() {
-        modificado = false;  // Si se cancela, no se considera ninguna modificación
         Stage stage = (Stage) btnCancelar.getScene().getWindow();
         stage.close();
     }
 }
-

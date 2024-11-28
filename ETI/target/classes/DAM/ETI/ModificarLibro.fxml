@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -28,9 +29,9 @@
         <Label layoutX="38.0" layoutY="188.0" text="Asignatura:" />
         <TextField fx:id="txtAsignatura" layoutX="33.0" layoutY="209.0" prefHeight="25.0" prefWidth="292.0" style="-fx-background-radius: 15;" />
 
-        <!-- Campo de texto para Curso -->
+        <!-- Campo de selección para Curso -->
         <Label layoutX="38.0" layoutY="240.0" text="Curso:" />
-        <TextField fx:id="txtCurso" layoutX="33.0" layoutY="259.0" prefHeight="25.0" prefWidth="292.0" style="-fx-background-radius: 15;" />
+        <ComboBox fx:id="cmbCurso" layoutX="33.0" layoutY="259.0" prefHeight="25.0" prefWidth="292.0" style="-fx-background-radius: 15;" />
 
         <!-- Campo de texto para ISBN -->
         <Label layoutX="37.0" layoutY="289.0" text="ISBN:" />
