@@ -70,7 +70,7 @@
         <Button layoutX="65.0" layoutY="21.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleInicioButtonAction" prefHeight="18.0" prefWidth="45.0" style="-fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Inicio" />
 
         <!-- Tabla de Libros centrada -->
-        <TableView fx:id="tablaLibros" layoutX="51.0" layoutY="220.0" prefHeight="250.0" prefWidth="700.0">
+        <TableView id="btnSolicitarLibro" fx:id="tablaLibros" layoutX="51.0" layoutY="220.0" prefHeight="250.0" prefWidth="700.0">
             <columns>
                 <TableColumn fx:id="colTitulo" prefWidth="128.8" style="-fx-alignment: CENTER;" text="Título" />
                 <TableColumn fx:id="colAsignatura" prefWidth="121.6" style="-fx-alignment: CENTER;" text="Asignatura" />
@@ -82,7 +82,8 @@
         </TableView>
 
         <!-- Botón para solicitar un libro -->
-        <Button layoutX="51.0" layoutY="530.0" onAction="#solicitarLibro" prefHeight="35.0" prefWidth="700.0" style="-fx-background-color: #C6A6D2; -fx-background-radius: 15; -fx-padding: 10px 20px; -fx-font-weight: bold;" text="SOLICITAR LIBRO">
+      <Button fx:id="btnSolicitarLibro" layoutX="51.0" layoutY="530.0" onAction="#solicitarLibro" prefHeight="35.0" prefWidth="700.0" style="-fx-background-color: #C6A6D2; -fx-background-radius: 15; -fx-padding: 10px 20px; -fx-font-weight: bold;" text="SOLICITAR LIBRO">
+
             <font>
                 <Font name="Comic Sans MS" size="13.0" />
             </font>
