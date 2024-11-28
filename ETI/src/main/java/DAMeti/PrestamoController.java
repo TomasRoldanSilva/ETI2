@@ -117,7 +117,7 @@ public class PrestamoController {
                 if (diasRetraso <= 0) {
                     mostrarAlerta("Libro devuelto en fecha", "El libro fue devuelto correctamente en la fecha prevista.");
                 } else {
-                    mostrarAlerta("Libro devuelto con retraso", "El libro se devolvió con " + diasRetraso + " días de retraso.");
+                    mostrarAlerta("Libro devuelto con retraso", "El libro se devolvió con " + diasRetraso + " días de retraso. Se notificará a sus tutores legales. ");
                 }
 
                 // Eliminar el préstamo y actualizar el número de copias en la tabla libros
