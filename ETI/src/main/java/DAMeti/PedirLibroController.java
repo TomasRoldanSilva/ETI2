@@ -174,9 +174,7 @@ public class PedirLibroController {
             stage.setScene(new Scene(root));
             stage.show();
 
-            // Cerrar la ventana actual usando el evento
-            Stage ventanaActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            ventanaActual.close();
+           
 
         } catch (IOException e) {
             e.printStackTrace();
