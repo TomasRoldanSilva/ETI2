@@ -5,6 +5,8 @@ module Biblioteca.ETI {
 	requires java.desktop;
 	requires javafx.graphics;
 	requires javafx.base;
+	requires org.apache.pdfbox;
+	requires javafx.web;
 
     opens DAMeti to javafx.fxml;
     opens Modelo to javafx.base; // Permitir acceso a JavaFX
