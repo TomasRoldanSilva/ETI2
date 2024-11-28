@@ -27,7 +27,7 @@ public class App extends Application {
 
             Scene scene = new Scene(root, 800, 600);
             primaryStage.setScene(scene);
-            primaryStage.setTitle("Aplicación de Administración");
+            primaryStage.setTitle("Biblioteca ETI. Disfruta de la lectura. ");
             primaryStage.show();
 
             // Agregar la escena inicial a la pila

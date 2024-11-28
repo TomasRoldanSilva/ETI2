@@ -86,7 +86,7 @@ public class RegistroController implements Initializable {
 
             int rowsInserted = stmt.executeUpdate();
             if (rowsInserted > 0) {
-                mostrarAlerta("Éxito", "Alumno registrado correctamente.");
+                mostrarAlerta("Registro correcto", "Alumno registrado correctamente.");
 
                 // Limpiar los campos tras el registro exitoso
                 nombreCompletoField.clear();
@@ -98,7 +98,7 @@ public class RegistroController implements Initializable {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            mostrarAlerta("Error", "Error al registrar el usuario en la base de datos.");
+            mostrarAlerta("Error en el registro", "Error al registrar el usuario en la base de datos.");
         }
     }
 

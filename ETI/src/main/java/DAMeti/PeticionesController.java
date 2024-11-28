@@ -138,7 +138,7 @@ public class PeticionesController {
         String id = searchIdField.getText(); // Obtener el ID ingresado por el usuario
 
         if (id.isEmpty()) {
-            mostrarAlerta("Error", "Por favor ingrese un ID para buscar.");
+            mostrarAlerta("Error", "Por favor teclea un ID para buscar.");
             return;
         }
 
@@ -197,7 +197,7 @@ public class PeticionesController {
         Peticion peticionSeleccionada = tablaPeticiones.getSelectionModel().getSelectedItem();
 
         if (peticionSeleccionada == null) {
-            mostrarAlerta("Error", "Por favor, seleccione una petición para validar.");
+            mostrarAlerta("Error", "Por favor, seleccione una petición para confirmar.");
             return;
         }
 
@@ -252,7 +252,7 @@ public class PeticionesController {
                 // Recargar préstamos
                 cargarPrestamos();
 
-                mostrarAlertaBien("Éxito", "El préstamo ha sido validado con éxito.");
+                mostrarAlertaBien("Éxito", "El préstamo ha sido confirmado con éxito.");
                 mostrarConfirmacion(event);
             } else {
                 System.out.println("No se pudo actualizar el número de copias. Tal vez no hay copias disponibles.");
@@ -261,7 +261,7 @@ public class PeticionesController {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            mostrarAlerta("Error al validar préstamo", "Hubo un error al validar el préstamo.");
+            mostrarAlerta("Error al confirmar préstamo", "Hubo un error al confirmar el préstamo.");
         }
     }
 

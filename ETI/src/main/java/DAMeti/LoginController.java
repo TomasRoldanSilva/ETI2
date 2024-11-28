@@ -145,7 +145,7 @@ public class LoginController {
             return;
         }
 
-        // Dialog para verificar el nombre del padre/madre
+        // Dialogo para verificar el nombre del padre/madre
         TextField txtNombrePadreMadre = new TextField();
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Recuperación de contraseña");

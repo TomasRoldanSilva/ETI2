@@ -41,7 +41,7 @@ public class Admin1Controller {
         String clave = claveField.getText();
 
         if (nombre.equals(ADMIN_NOMBRE) && clave.equals(ADMIN_CLAVE)) {
-            mensajeLabel.setText("Ingreso exitoso");
+            mensajeLabel.setText("Se ha identificado correctamente");
             
             // Redirige a la vista admin2.fxml
             try {

@@ -82,7 +82,7 @@ public class AlumnoGestionController {
     void buscarPorID() {
         String buscarID = txtBuscarID.getText();
         if (buscarID.isEmpty()) {
-            lblMensaje.setText("Por favor, ingrese un ID para buscar.");
+            lblMensaje.setText("Por favor, teclea un ID ");
             return;
         }
 
@@ -128,14 +128,14 @@ public class AlumnoGestionController {
                 
                 // Crear la alerta
                 Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-                alerta.setTitle("Modificación Exitosa");
+                alerta.setTitle("Modificación correcta");
                 alerta.setHeaderText(null);
                 alerta.setContentText("Alumno modificado correctamente.");
                 alerta.showAndWait();
             } else {
                 // Si no se pudo obtener el alumno, mostrar un error
                 Alert alertaError = new Alert(Alert.AlertType.ERROR);
-                alertaError.setTitle("Error");
+                alertaError.setTitle("Error en la modificación");
                 alertaError.setHeaderText(null);
                 alertaError.setContentText("No se pudo modificar el alumno.");
                 alertaError.showAndWait();
@@ -185,7 +185,7 @@ public class AlumnoGestionController {
                 
                 // Alerta de eliminación exitosa
                 Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-                alerta.setTitle("Eliminación Exitosa");
+                alerta.setTitle("Eliminación correcta");
                 alerta.setHeaderText(null);
                 alerta.setContentText("Alumno eliminado correctamente.");
                 alerta.showAndWait();

@@ -39,7 +39,7 @@ public class Admin2Controller {
 
     @FXML
     private void initialize() {
-        // Puedes agregar inicializaciones si es necesario
+        
     }
 
     @FXML
