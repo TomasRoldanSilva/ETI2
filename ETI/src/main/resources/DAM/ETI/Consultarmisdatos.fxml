@@ -43,7 +43,7 @@
             <Font name="Comic Sans MS" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="301.0" layoutY="195.0" text="Libros en Posesión">
+      <Label layoutX="301.0" layoutY="195.0" text="Libros en Préstamo">
          <font>
             <Font name="Comic Sans MS" size="24.0" />
          </font>
