@@ -177,7 +177,7 @@ public class AlumnoGestionController {
     void añadirAlumno() {
         // Mostrar una alerta informativa
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-        alerta.setTitle("Información");
+        alerta.setTitle("Añadir alumno");
         alerta.setHeaderText("La autonomía es un gran regalo ");
         alerta.setContentText("Animalo a que lo haga él mismo. ");
         alerta.showAndWait(); // Esperar hasta que el usuario cierre la alerta
