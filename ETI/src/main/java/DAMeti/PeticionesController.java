@@ -329,6 +329,39 @@ public class PeticionesController {
             irAVista("/DAM/ETI/Prestamo.fxml", event);  
         } 
     }
+    //método para eliminar peticiones de más de tres días 
+    @FXML
+    private void EliminarPeticionesAntiguas(ActionEvent event) {
+        Alert confirmacion = new Alert(AlertType.CONFIRMATION);
+        confirmacion.setTitle("Confirmación");
+        confirmacion.setHeaderText("Eliminar peticiones con más de 3 dias");
+        confirmacion.setContentText("¿Quieres eliminar las peticiones de más de 3 días?");
+
+        Optional<ButtonType> result = confirmacion.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            String sql = "DELETE FROM peticiones WHERE fecha_peticion < DATE_SUB(CURDATE(), INTERVAL 3 DAY)";
+            String url = "jdbc:mysql://localhost:3306/eti";
+
+            try (Connection connection = DriverManager.getConnection(url, "root", "");
+                 PreparedStatement stmt = connection.prepareStatement(sql)) {
+
+                int filasEliminadas = stmt.executeUpdate();
+
+                if (filasEliminadas > 0) {
+                    mostrarAlertaBien("Éxito", "Se han eliminado " + filasEliminadas + " peticiones antiguas.");
+                } else {
+                    mostrarAlertaBien("Información", "No hay peticiones antiguas para eliminar.");
+                }
+
+                cargarPeticiones();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                mostrarAlerta("Error", "Hubo un problema al intentar eliminar las peticiones antiguas.");
+            }
+        }
+    }
+
 
     private void irAVista(String fxmlFile, ActionEvent event) {
         try {
