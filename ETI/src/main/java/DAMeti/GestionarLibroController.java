@@ -154,15 +154,23 @@ public class GestionarLibroController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/DAM/ETI/AñadirLibro.fxml"));
             Parent root = loader.load();
 
+            // Obtener el controlador de la ventana de añadir libro
+            AgregarLibroController agregarLibroController = loader.getController();
+            agregarLibroController.setLibroService(this); // Pasar el controlador actual
+
             Stage stage = new Stage();
             stage.setTitle("Añadir Nuevo Libro");
             stage.setScene(new Scene(root));
             stage.show();
+
+            // Configurar una acción para cuando se cierre la ventana
+            stage.setOnHidden(event -> cargarLibros());
         } catch (IOException e) {
             e.printStackTrace();
             mostrarAlertaInformacion("Error", "Error al abrir la ventana para añadir libro.");
         }
     }
+
 
     @FXML
     private void modificarLibro() {

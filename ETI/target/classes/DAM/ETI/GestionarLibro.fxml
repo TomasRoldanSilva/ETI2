@@ -17,7 +17,7 @@
             <Button onAction="#handleInicioButtonAction" style="-fx-background-color: transparent;" />
         </HBox>
 
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="350.0" layoutY="50.0" prefHeight="48.0" prefWidth="303.0" style="-fx-font-weight: bold;" text="Gestión de Libros" textAlignment="CENTER" textFill="#000000">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="412.0" layoutY="59.0" prefHeight="48.0" prefWidth="303.0" style="-fx-font-weight: bold;" text="Gestión de Libros" textAlignment="CENTER" textFill="#000000">
             <font>
                 <Font size="24.0" />
             </font>
@@ -42,8 +42,8 @@
 
         <!-- Botones de Añadir, Modificar y Eliminar para la gestión de libros -->
         <Button id="añadirlibro" layoutX="90.0" layoutY="520.0" onAction="#anadirLibro" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Añadir" />
-        <Button layoutX="352.0" layoutY="520.0" onAction="#modificarLibro" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Modificar" />
-        <Button layoutX="599.0" layoutY="520.0" onAction="#eliminarLibro" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Eliminar" />
+        <Button layoutX="338.0" layoutY="518.0" onAction="#modificarLibro" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Modificar" />
+        <Button layoutX="594.0" layoutY="520.0" onAction="#eliminarLibro" prefHeight="48.0" prefWidth="117.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #D1C0EB; -fx-background-radius: 15; -fx-padding: 5px 20px;" text="Eliminar" />
 
         <!-- Mensaje de estado para errores o confirmaciones -->
         <Label fx:id="lblMensaje" layoutX="50.0" layoutY="490.0" textFill="#FF0000" />
