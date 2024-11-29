@@ -334,12 +334,12 @@ public class PeticionesController {
     private void EliminarPeticionesAntiguas(ActionEvent event) {
         Alert confirmacion = new Alert(AlertType.CONFIRMATION);
         confirmacion.setTitle("Confirmación");
-        confirmacion.setHeaderText("Eliminar peticiones con más de 3 dias");
-        confirmacion.setContentText("¿Quieres eliminar las peticiones de más de 3 días?");
+        confirmacion.setHeaderText("Eliminar peticiones con más de 1 dias");
+        confirmacion.setContentText("¿Quieres eliminar las peticiones de más de 1 días?");
 
         Optional<ButtonType> result = confirmacion.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            String sql = "DELETE FROM peticiones WHERE fecha_peticion < DATE_SUB(CURDATE(), INTERVAL 3 DAY)";
+            String sql = "DELETE FROM peticiones WHERE fecha_peticion < DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
             String url = "jdbc:mysql://localhost:3306/eti";
 
             try (Connection connection = DriverManager.getConnection(url, "root", "");

@@ -35,6 +35,11 @@
 						<Label text="Inicia sesión y ve a pedir libro. Podrás ver todos los libros de tu curso que hay en la biblioteca." wrapText="true" />
 					</content>
 				</TitledPane>
+				<TitledPane style="-fx-font-size: 16px;-fx-font-weight: bold;" text="¿Cuánto tiempo tengo para recoger el libro que he pedido?">
+					<content>
+						<Label text="Tendrás que recoger el libro el mismo día que haces la peticion " wrapText="true" />
+					</content>
+				</TitledPane>
 				<TitledPane style="-fx-font-size: 16px;-fx-font-weight: bold;" text="¿Cuánto tiempo tengo para devolver un libro?">
 					<content>
 						<Label text="Tendrás 15 días para devolver tu libro. Es importante que cumplas este plazo. " wrapText="true" />
