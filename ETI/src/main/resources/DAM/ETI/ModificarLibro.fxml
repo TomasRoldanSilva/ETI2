@@ -31,7 +31,7 @@
 
         <!-- Campo de selección para Curso -->
         <Label layoutX="38.0" layoutY="240.0" text="Curso:" />
-        <ComboBox fx:id="cmbCurso" layoutX="33.0" layoutY="259.0" prefHeight="25.0" prefWidth="292.0" style="-fx-background-radius: 15;" />
+        <ComboBox fx:id="cmbCurso" layoutX="33.0" layoutY="259.0" prefHeight="25.0" prefWidth="292.0" style="-fx-background-radius: 15; -fx-background-color: FFFFFF;" />
 
         <!-- Campo de texto para ISBN -->
         <Label layoutX="37.0" layoutY="289.0" text="ISBN:" />

@@ -28,7 +28,7 @@
         <TextField fx:id="txtAsignatura" layoutX="31.0" layoutY="206.0" prefWidth="300.0" style="-fx-background-radius: 15;" />
 
         <Label layoutX="34.0" layoutY="237.0" text="Curso:" textFill="#000000" />
-        <ComboBox fx:id="comboCurso" layoutX="31.0" layoutY="257.0" prefWidth="300.0" promptText="Selecciona el curso" style="-fx-background-radius: 15;" />
+        <ComboBox fx:id="comboCurso" layoutX="31.0" layoutY="257.0" prefWidth="300.0" promptText="Selecciona el curso" style="-fx-background-radius: 15; -fx-background-color: FFFFFF;" />
 
         <Label layoutX="33.0" layoutY="292.0" text="Editorial:" textFill="#000000" />
         <TextField fx:id="txtEditorial" layoutX="31.0" layoutY="311.0" prefWidth="300.0" style="-fx-background-radius: 15;" />
