@@ -67,11 +67,15 @@ public class PrestamoController {
     void cargarPrestamos() {
         listaPrestamos = FXCollections.observableArrayList();
         String url = "jdbc:mysql://localhost:3306/eti";
-        
-        // Hacemos el JOIN entre las tablas 'prestamos' y 'libros' para obtener el número de copias del libro
-        String sql = "SELECT p.id_peticion, p.id_libro, p.nombre_alumno, p.titulo_libro, p.fecha_prestamo, p.fecha_devolucion, p.numero_copias, l.numero_de_copias AS numero_copias " +
-                     "FROM prestamos p " +
-                     "JOIN libros l ON p.id_libro = l.id";
+
+        String sql = "SELECT p.id_peticion, p.id_libro, p.nombre_alumno, p.titulo_libro, " +
+                "p.fecha_prestamo, p.fecha_devolucion, " +
+                "(l.numero_de_copias ) AS numero_copias, " +
+                "l.numero_de_copias " +
+                "FROM prestamos p " +
+                "JOIN libros l ON p.id_libro = l.id";
+
+
 
         try (Connection connection = DriverManager.getConnection(url, "root", "");
              PreparedStatement stmt = connection.prepareStatement(sql);
@@ -79,7 +83,6 @@ public class PrestamoController {
 
             listaPrestamos.clear();
 
-            // Procesar los resultados del JOIN
             while (resultSet.next()) {
                 int idPeticion = resultSet.getInt("id_peticion");
                 int idLibro = resultSet.getInt("id_libro");
@@ -87,13 +90,12 @@ public class PrestamoController {
                 String tituloLibro = resultSet.getString("titulo_libro");
                 Date fechaPrestamo = resultSet.getDate("fecha_prestamo");
                 Date fechaDevolucion = resultSet.getDate("fecha_devolucion");
-                int numeroCopiasPrestamo = resultSet.getInt("numero_copias"); // número de copias del préstamo
-                int numeroCopiasLibro = resultSet.getInt("numero_copias");  // número de copias del libro desde el JOIN
+                int numeroCopiasCalculado = resultSet.getInt("numero_copias"); // Valor calculado: l.numero_de_copias - 1
 
-                // Crear el objeto Prestamo con el número de copias del libro
-                listaPrestamos.add(new Prestamo(idPeticion, idLibro, nombreAlumno, tituloLibro, fechaPrestamo, fechaDevolucion, numeroCopiasLibro));
+                listaPrestamos.add(new Prestamo(idPeticion, idLibro, nombreAlumno, tituloLibro, fechaPrestamo, fechaDevolucion, numeroCopiasCalculado));
             }
 
+            // Configuramos la tabla con los datos cargados
             tablaPrestamos.setItems(listaPrestamos);
 
         } catch (SQLException e) {
@@ -101,6 +103,7 @@ public class PrestamoController {
             mostrarAlerta("Error al cargar los préstamos", "No se pudieron cargar los préstamos desde la base de datos.");
         }
     }
+
 
 
     @FXML
@@ -125,6 +128,8 @@ public class PrestamoController {
 
                 // Actualizar el número de copias en la tabla libros al devolver el préstamo
                 actualizarNumeroDeCopias(prestamoSeleccionado.getIdLibro(), 1);
+                // Recargar la tabla visual con los datos actualizados
+                cargarPrestamos();
 
                
             } else {

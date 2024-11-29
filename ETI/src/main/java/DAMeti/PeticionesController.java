@@ -211,7 +211,6 @@ public class PeticionesController {
         java.sql.Date sqlFechaPrestamo = java.sql.Date.valueOf(fechaPeticion);
         java.sql.Date sqlFechaDevolucion = java.sql.Date.valueOf(fechaDevolucion);
 
-        // Crear el objeto Prestamo
         Prestamo prestamo = new Prestamo(
             peticionSeleccionada.getId(),
             peticionSeleccionada.getIdLibro(),
@@ -219,52 +218,48 @@ public class PeticionesController {
             peticionSeleccionada.getTituloLibro(),
             sqlFechaPrestamo,
             sqlFechaDevolucion,
-            peticionSeleccionada.getNumeroCopias() // Mantener el número de copias actualizado
+            peticionSeleccionada.getNumeroCopias()
         );
 
-        String updateLibroSQL = "UPDATE libros SET numero_de_copias = numero_de_copias  WHERE id = ? AND numero_de_copias > 0";
+        String updateLibroSQL = "UPDATE libros SET numero_de_copias = numero_de_copias - 1 WHERE id = ? AND numero_de_copias > 0";
         String insertPrestamoSQL = "INSERT INTO prestamos (id_peticion, id_libro, nombre_alumno, titulo_libro, fecha_prestamo, fecha_devolucion, numero_copias) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/eti", "root", "");
              PreparedStatement updateStmt = connection.prepareStatement(updateLibroSQL);
              PreparedStatement insertStmt = connection.prepareStatement(insertPrestamoSQL)) {
 
-            // Actualizar el número de copias del libro
+            // Actualizar el número de copias en libros
             updateStmt.setInt(1, prestamo.getIdLibro());
             int rowsUpdated = updateStmt.executeUpdate();
-
-            if (rowsUpdated > 0) {
-                System.out.println("Número de copias actualizado correctamente.");
-
-                // Insertar el préstamo en la base de datos
-                insertStmt.setInt(1, prestamo.getIdPeticion());
-                insertStmt.setInt(2, prestamo.getIdLibro());
-                insertStmt.setString(3, prestamo.getNombreAlumno());
-                insertStmt.setString(4, prestamo.getTituloLibro());
-                insertStmt.setDate(5, sqlFechaPrestamo);
-                insertStmt.setDate(6, sqlFechaDevolucion);
-                insertStmt.setInt(7, 1); // Solo guardar una copia prestada
-                insertStmt.executeUpdate();
-
-                // Eliminar la petición procesada
-                eliminarPeticion(peticionSeleccionada.getId());
-
-                // Recargar préstamos
-                cargarPrestamos();
-
-                mostrarAlertaBien("Éxito", "El préstamo ha sido confirmado con éxito.");
-                mostrarConfirmacion(event);
-            } else {
-                System.out.println("No se pudo actualizar el número de copias. Tal vez no hay copias disponibles.");
-                mostrarAlerta("Error", "No se pudo procesar el préstamo. Tal vez no hay copias disponibles del libro.");
+            if (rowsUpdated == 0) {
+                mostrarAlerta("Error", "No se pudo actualizar el número de copias. Tal vez no hay copias disponibles.");
+                return;
             }
+
+            // Insertar el préstamo en la tabla prestamos
+            insertStmt.setInt(1, prestamo.getIdPeticion());
+            insertStmt.setInt(2, prestamo.getIdLibro());
+            insertStmt.setString(3, prestamo.getNombreAlumno());
+            insertStmt.setString(4, prestamo.getTituloLibro());
+            insertStmt.setDate(5, sqlFechaPrestamo);
+            insertStmt.setDate(6, sqlFechaDevolucion);
+            insertStmt.setInt(7, peticionSeleccionada.getNumeroCopias()); // Usar el valor correcto
+            insertStmt.executeUpdate();
+
+            // Eliminar la petición procesada
+            eliminarPeticion(peticionSeleccionada.getId());
+
+            // Recargar préstamos
+            cargarPrestamos();
+
+            mostrarAlertaBien("Peticion confirmada", "El libro está ahora en préstamo");
+            mostrarConfirmacion(event);
 
         } catch (SQLException e) {
             e.printStackTrace();
             mostrarAlerta("Error al confirmar préstamo", "Hubo un error al confirmar el préstamo.");
         }
     }
-
 
     private void eliminarPeticion(int id) {
         String sql = "DELETE FROM peticiones WHERE id_peticiones = ?";

@@ -60,21 +60,21 @@ public class ConfirmacionController {
 
             // Agregar el título (Confirmación de Préstamo)
             contentStream.beginText();
-            contentStream.setFont(PDType1Font.HELVETICA_BOLD, 18);
+            contentStream.setFont(PDType1Font.HELVETICA_BOLD, 16);
             contentStream.newLineAtOffset(100, 700); // Posición inicial del texto
             contentStream.showText(titulo);
             contentStream.endText();
 
             // Agregar el número de confirmación
             contentStream.beginText();
-            contentStream.setFont(PDType1Font.HELVETICA, 14);
+            contentStream.setFont(PDType1Font.HELVETICA, 20);
             contentStream.newLineAtOffset(100, 650); // Posición del texto debajo del título
             contentStream.showText("Número de Confirmación: " + mensajeConfirmacion);
             contentStream.endText();
 
             // Agregar el mensaje para recoger el libro
             contentStream.beginText();
-            contentStream.setFont(PDType1Font.HELVETICA, 18);
+            contentStream.setFont(PDType1Font.HELVETICA, 16);
             contentStream.newLineAtOffset(100, 600); // Posición del texto adicional
             contentStream.showText("Por favor, pase al mostrador para recoger su libro.");
             contentStream.endText();

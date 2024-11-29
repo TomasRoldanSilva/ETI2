@@ -179,7 +179,7 @@ public class AlumnoGestionController {
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle("Información");
         alerta.setHeaderText("La autonomía es un gran regalo ");
-        alerta.setContentText("Animalo a que se de de alta él mismo. ");
+        alerta.setContentText("Animalo a que lo haga él mismo. ");
         alerta.showAndWait(); // Esperar hasta que el usuario cierre la alerta
     }
 

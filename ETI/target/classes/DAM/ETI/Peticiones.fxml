@@ -67,7 +67,7 @@
     </TableView>
 
    <Button fx:id="validarPrestamoButton" layoutX="342.0" layoutY="533.0" onAction="#handleValidarPrestamo" style="-fx-background-color: #4B0082; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 15;" text="Validar Peticion" />
-   <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBackButtonAction" style="-fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Atrás" />
-   <Button layoutX="55.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleInicioButtonAction" prefHeight="18.0" prefWidth="45.0" style="-fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Inicio" />
+   <Button layoutX="28.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleBackButtonAction" style="-fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Atrás" />
+   <Button layoutX="78.0" layoutY="20.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleInicioButtonAction" prefHeight="18.0" prefWidth="45.0" style="-fx-background-color: #D1C0EB; -fx-background-radius: 15;" text="Inicio" />
 
 </AnchorPane>
