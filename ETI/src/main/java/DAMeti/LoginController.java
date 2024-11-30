@@ -28,9 +28,9 @@ public class LoginController {
     @FXML
     private PasswordField txtContra;
     
-    private static final String URL = "jdbc:mysql://localhost:3306/eti"; // Ajusta el nombre de la base de datos
-    private static final String USUARIO = "root"; // Ajusta el usuario de la base de datos
-    private static final String CONTRASEÑA = ""; // Ajusta la contraseña si es necesario
+    private static final String URL = "jdbc:mysql://localhost:3306/eti"; 
+    private static final String USUARIO = "root"; 
+    private static final String CONTRASEÑA = ""; 
     
     // Método para establecer la conexión a la base de datos
     public static Connection dameConexion() throws SQLException {
@@ -76,7 +76,7 @@ public class LoginController {
             boolean autenticado = verificarCredenciales(usuario, contraseña);
 
             if (autenticado) {
-                Alumno alumno = obtenerAlumno(usuario, contraseña); // Obtenemos el objeto Alumno
+                Alumno alumno = obtenerAlumno(usuario, contraseña); 
                 
                 if (alumno != null) {
                     mostrarAlerta(AlertType.INFORMATION, "Alumno identificado", "Hola, " + alumno.getNombre());

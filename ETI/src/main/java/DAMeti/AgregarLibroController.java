@@ -43,10 +43,11 @@ public class AgregarLibroController {
     private void initialize() {
         comboCurso.getItems().addAll(1, 2, 3, 4, 5, 6);
     }
+    //crear un nuevo libro 
 
     @FXML
     private void guardarLibro() {
-        String idText = txtId.getText().trim(); // Permite entradas vacías para id
+        String idText = txtId.getText().trim(); // autoincrementativo no presente en la interfaz
         String titulo = txtTitulo.getText().trim();
         String asignatura = txtAsignatura.getText().trim();
         Integer curso = comboCurso.getValue();
@@ -60,7 +61,7 @@ public class AgregarLibroController {
             return;
         }
 
-        // Validación adicional para ISBN
+        // Validación adicional para ISBN para que tenga formato correcto: 13 números
         if (isbn.length() != 13 || !isbn.matches("\\d+")) {
             mostrarAlerta(Alert.AlertType.WARNING, "ISBN Inválido", "El ISBN debe contener exactamente 13 dígitos numéricos.");
             return;
@@ -83,7 +84,7 @@ public class AgregarLibroController {
 
                 int paramIndex = 1; // Índice del parámetro en la consulta
 
-                // Asignar ID solo si el usuario lo ingresó
+                // Asignar ID solo si el usuario lo ingresó (actualmente se ha decidido que no lo pueda ingresar pero se puede modificar) 
                 if (incluyeId) {
                     int id = Integer.parseInt(idText); // Valida que sea numérico
                     stmt.setInt(paramIndex++, id);

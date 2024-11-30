@@ -29,8 +29,10 @@ public class AlumnoController {
 		stage.setScene(inicioScene);
 		stage.show();
 	}
+	//clase inicial de alumno con los tres botones para elegir qué quiere hacer: registro, login o preguntas frecuentes. 
 
 	@FXML
+	
 	private void abrirRegistro(ActionEvent event) throws IOException {
 		// Cargar la vista de registro
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/DAM/ETI/registro.fxml"));

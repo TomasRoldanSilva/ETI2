@@ -13,7 +13,7 @@ public class InicioController {
 
     @FXML
     private void handleAlumnoButtonAction(ActionEvent event) throws IOException {
-        // Obtener la escena actual y almacenarla en la pila
+        
         Scene currentScene = ((Node) event.getSource()).getScene();
         App.pushScene(currentScene);
 

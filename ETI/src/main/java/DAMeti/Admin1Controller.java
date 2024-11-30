@@ -31,7 +31,7 @@ public class Admin1Controller {
     @FXML
     private Button entrarButton; 
 
-    // Nombre y clave del administrador
+    // Nombre y clave del administrador que se aasignara desde el colegio 
     private final String ADMIN_NOMBRE = "admin";
     private final String ADMIN_CLAVE = "1234";
 

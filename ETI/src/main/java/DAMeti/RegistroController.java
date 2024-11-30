@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -72,17 +73,40 @@ public class RegistroController implements Initializable {
             return;
         }
 
-        // Insertar datos en la base de datos
         try (Connection connection = conexion.dameConexion()) {
-            String sql = "INSERT INTO alumnos (nombre, curso, nombre_madre_padre, nombre_tutor, usuario, contrasena) VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            // Verificar si el nombre ya existe en la base de datos
+            String checkNombreSql = "SELECT COUNT(*) AS cantidad FROM alumnos WHERE nombre = ?";
+            PreparedStatement checkNombreStmt = connection.prepareStatement(checkNombreSql);
+            checkNombreStmt.setString(1, nombreCompleto);
+
+            ResultSet rsNombre = checkNombreStmt.executeQuery();
+            if (rsNombre.next() && rsNombre.getInt("cantidad") > 0) {
+                mostrarAlerta("Nombre duplicado", 
+                              "El nombre ya está registrado. Por favor, utiliza un número o el segundo apellido para diferenciarlo.");
+                return; // Detener el flujo de registro
+            }
+
+            // Verificar si el nombre de usuario ya existe en la base de datos
+            String checkUsuarioSql = "SELECT COUNT(*) AS cantidad FROM alumnos WHERE usuario = ?";
+            PreparedStatement checkUsuarioStmt = connection.prepareStatement(checkUsuarioSql);
+            checkUsuarioStmt.setString(1, nombreUsuario);
+
+            ResultSet rsUsuario = checkUsuarioStmt.executeQuery();
+            if (rsUsuario.next() && rsUsuario.getInt("cantidad") > 0) {
+                mostrarAlerta("Usuario duplicado", 
+                              "El nombre de usuario ya está registrado. Por favor, elige uno diferente.");
+                return; // Detener el flujo de registro
+            }
+
+            // Si el nombre y el usuario no existen, proceder con la inserción
+            String insertSql = "INSERT INTO alumnos (nombre, curso, nombre_madre_padre, nombre_tutor, usuario, contrasena) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement stmt = connection.prepareStatement(insertSql);
             stmt.setString(1, nombreCompleto);
             stmt.setInt(2, curso);
             stmt.setString(3, nombreMadrePadre);
             stmt.setString(4, nombreTutor);
             stmt.setString(5, nombreUsuario);
             stmt.setString(6, contrasena);
-
 
             int rowsInserted = stmt.executeUpdate();
             if (rowsInserted > 0) {

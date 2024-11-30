@@ -90,7 +90,7 @@ public class PrestamoController {
                 String tituloLibro = resultSet.getString("titulo_libro");
                 Date fechaPrestamo = resultSet.getDate("fecha_prestamo");
                 Date fechaDevolucion = resultSet.getDate("fecha_devolucion");
-                int numeroCopiasCalculado = resultSet.getInt("numero_copias"); // Valor calculado: l.numero_de_copias - 1
+                int numeroCopiasCalculado = resultSet.getInt("numero_copias"); 
 
                 listaPrestamos.add(new Prestamo(idPeticion, idLibro, nombreAlumno, tituloLibro, fechaPrestamo, fechaDevolucion, numeroCopiasCalculado));
             }
@@ -105,7 +105,7 @@ public class PrestamoController {
     }
 
 
-
+//eliminar registro de prestamo cuando el libro se devuelve
     @FXML
     private void handleEliminarPrestamo(ActionEvent event) {
         Prestamo prestamoSeleccionado = tablaPrestamos.getSelectionModel().getSelectedItem();
@@ -123,10 +123,8 @@ public class PrestamoController {
                     mostrarAlerta("Libro devuelto con retraso", "El libro se devolvió con " + diasRetraso + " días de retraso. Se notificará a sus tutores legales. ");
                 }
 
-                // Eliminar el préstamo y actualizar el número de copias en la tabla libros
-                eliminarPrestamo(prestamoSeleccionado);
-
-                // Actualizar el número de copias en la tabla libros al devolver el préstamo
+                // Eliminar el préstamo  
+                eliminarPrestamo(prestamoSeleccionado);                
                 actualizarNumeroDeCopias(prestamoSeleccionado.getIdLibro(), 1);
                 // Recargar la tabla visual con los datos actualizados
                 cargarPrestamos();
@@ -139,6 +137,7 @@ public class PrestamoController {
             mostrarAlerta("No se seleccionó ningún préstamo", "Por favor seleccione un préstamo para eliminar.");
         }
     }
+    //actualizar numero de copias en la tabla libros una vez eliminado el prestamo
 
     private void actualizarNumeroDeCopias(int idLibro, int cambioCopias) {
         String updateLibroSQL = "UPDATE libros SET numero_de_copias = numero_de_copias + ? WHERE id = ?";

@@ -11,11 +11,12 @@ import javafx.stage.Stage;
 import Modelo.Alumno;
 
 public class AlumnoFormControlador {
+	//controlador del formulario para modificar un alumno
 
     @FXML
     private TextField txtNombre;
     @FXML
-    private ComboBox<Integer> comboCurso; // Cambiado a ComboBox<Integer>
+    private ComboBox<Integer> comboCurso; 
     @FXML
     private TextField txtTutor;
     @FXML
@@ -27,7 +28,7 @@ public class AlumnoFormControlador {
     private Button btnCancelar;
 
     private Alumno alumno;
-    private boolean modificado = false;  // Bandera para indicar si el alumno fue modificado
+    private boolean modificado = false;  
 
     public void initAttributes(Alumno alumno) {
         this.alumno = alumno;
@@ -76,7 +77,7 @@ public class AlumnoFormControlador {
     }
 
     public Alumno getAlumno() {
-        return modificado ? alumno : null;  // Solo devuelve el alumno si fue modificado
+        return modificado ? alumno : null;  
     }
 
     private void showAlert(String title, String message) {

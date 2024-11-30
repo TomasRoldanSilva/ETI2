@@ -23,7 +23,7 @@
 		<Button layoutX="7.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleBackButtonAction" style="-fx-background-color: #D1C0EB;-fx-background-radius: 15;" text="Atrás" />
 		<Button layoutX="52.0" layoutY="8.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleInicioButtonAction" prefHeight="18.0" prefWidth="45.0" style="-fx-background-color: #D1C0EB;-fx-background-radius: 15;" text="Inicio" />
 		<!-- Accordion con preguntas frecuentes -->
-		<Accordion fx:id="faqAccordion" layoutX="102.0" layoutY="161.0" prefHeight="350.0" prefWidth="600.0">
+		<Accordion fx:id="faqAccordion" layoutX="20.0" layoutY="108.0" prefHeight="440.0" prefWidth="701.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.33333333333326" AnchorPane.topAnchor="108.0">
 			<panes>
       				<TitledPane style="-fx-font-size: 16px;-fx-font-weight: bold;" text="¿Es obligatorio registrarse?">
       					<content>
@@ -67,7 +67,12 @@
 				</TitledPane>
 				<TitledPane style="-fx-font-size: 16px;-fx-font-weight: bold;" text="¿Qué sucede si no devuelvo un libro a tiempo?">
 					<content>
-						<Label text="Se le comunicará a su tutor para que de un aviso a los padres. " wrapText="true" />
+						<Label text="No podrás sacar más libros hasta que no devuelvas el que tienes en préstamo. Se avisará a los padres y al tutor.  " wrapText="true" />
+					</content>
+				</TitledPane>
+				<TitledPane style="-fx-font-size: 16px;-fx-font-weight: bold;" text="¿Qué sucede si pierdo un libro en préstamo?">
+					<content>
+						<Label text="No podrás sacar más libros hasta que entregues un libro como el que has perdido. Se avisará a los padres y al tutor.  " wrapText="true" />
 					</content>
 				</TitledPane>
 			</panes>

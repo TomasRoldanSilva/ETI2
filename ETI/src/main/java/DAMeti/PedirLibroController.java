@@ -54,7 +54,7 @@ public class PedirLibroController {
         cargarLibros();
     }
 
-    // Cargar los libros correspondientes al curso del alumno
+   
     public void cargarLibros() {
         if (alumno == null) {
             System.err.println("El objeto Alumno es null. No se puede cargar la lista de libros.");
@@ -62,6 +62,7 @@ public class PedirLibroController {
         }
 
         listaLibros.clear();
+        // Cargar los libros correspondientes al curso del alumno
         String sql = "SELECT * FROM libros WHERE curso = ?";
 
         try (Connection connection = dameConexion();
@@ -126,7 +127,7 @@ public class PedirLibroController {
             mostrarAlerta(Alert.AlertType.ERROR, "Error", "Por favor, seleccione un libro antes de solicitarlo.");
         }
     }
-
+//registramos la peticion en la tabla peticiones
     private void registrarPeticion(Libro libro, ActionEvent event) {
         String sql = "INSERT INTO peticiones (nombre_alumno, curso, id_libro, titulo_libro, isbn_libro, fecha_peticion, numero_copias) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -189,7 +190,7 @@ public class PedirLibroController {
         alerta.setContentText(mensaje);
         alerta.showAndWait();
     }
-
+//el sistema nos muestra todos los libros pertenecientes al curso pero lo podemos filtrar por asignatura
     @FXML
     private void filtrarLibrosPorAsignatura(javafx.event.ActionEvent event) {
         Button boton = (Button) event.getSource();
@@ -198,7 +199,7 @@ public class PedirLibroController {
         ObservableList<Libro> librosFiltrados = listaLibros.filtered(libro -> libro.getAsignatura().equals(asignaturaSeleccionada));
         tablaLibros.setItems(librosFiltrados);
     }
-
+//una vez que los hemos filtrado si queremos podemos volver a ver todos los libros
     @FXML
     private void verTodosLibros() {
         tablaLibros.setItems(listaLibros);

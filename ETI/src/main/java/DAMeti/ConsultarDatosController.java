@@ -107,7 +107,7 @@ public class ConsultarDatosController {
             String queryLibrosSolicitados = "SELECT p.titulo_libro AS titulo, p.fecha_prestamo, p.fecha_devolucion "
                     + "FROM prestamos p "
                     + "WHERE p.nombre_alumno = ? "
-                    + "  AND p.fecha_devolucion IS NOT NULL;"; // Libros que ya han sido devueltos
+                    + "  AND p.fecha_devolucion IS NOT NULL;"; 
 
             try (PreparedStatement stmt = conn.prepareStatement(queryLibrosSolicitados)) {
                 stmt.setString(1, nombreAlumno);
@@ -124,7 +124,7 @@ public class ConsultarDatosController {
                 }
             }
 
-            // Consulta para obtener los libros en posesión (libros no devueltos)
+            // Consulta para obtener los libros en préstamo (libros no devueltos)
             String queryLibrosPosesion = "SELECT p.titulo_libro AS titulo, p.fecha_prestamo, p.fecha_devolucion "
                     + "FROM prestamos p "
                     + "WHERE p.nombre_alumno = ? AND p.fecha_devolucion IS NULL;"; // Libros no devueltos

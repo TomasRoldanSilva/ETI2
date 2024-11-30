@@ -191,7 +191,7 @@ public class PeticionesController {
         }
     }
 
-
+//una vez que estamos viendo la petición la validamos si el alumno recoge el libro 
     @FXML
     private void handleValidarPrestamo(ActionEvent event) {
         Peticion peticionSeleccionada = tablaPeticiones.getSelectionModel().getSelectedItem();
@@ -200,16 +200,18 @@ public class PeticionesController {
             mostrarAlerta("Error", "Por favor, seleccione una petición para confirmar.");
             return;
         }
-
+//carga la fecha de la petición 
         LocalDate fechaPeticion = peticionSeleccionada.getFechaPeticion();
         if (fechaPeticion == null) {
             mostrarAlerta("Error", "La petición no tiene una fecha válida.");
             return;
         }
+     //le aumenta quince días que es el plazo establecido para la devolución
 
         LocalDate fechaDevolucion = fechaPeticion.plusDays(15);
         java.sql.Date sqlFechaPrestamo = java.sql.Date.valueOf(fechaPeticion);
         java.sql.Date sqlFechaDevolucion = java.sql.Date.valueOf(fechaDevolucion);
+       //crea el préstamo con la petición validada
 
         Prestamo prestamo = new Prestamo(
             peticionSeleccionada.getId(),
@@ -220,6 +222,7 @@ public class PeticionesController {
             sqlFechaDevolucion,
             peticionSeleccionada.getNumeroCopias()
         );
+        //una vez que la petición está validada pasa a la tabla prestamos con una copia menos ese libro 
 
         String updateLibroSQL = "UPDATE libros SET numero_de_copias = numero_de_copias - 1 WHERE id = ? AND numero_de_copias > 0";
         String insertPrestamoSQL = "INSERT INTO prestamos (id_peticion, id_libro, nombre_alumno, titulo_libro, fecha_prestamo, fecha_devolucion, numero_copias) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -260,6 +263,7 @@ public class PeticionesController {
             mostrarAlerta("Error al confirmar préstamo", "Hubo un error al confirmar el préstamo.");
         }
     }
+    //eliminamos la petición una vez ha sido validada
 
     private void eliminarPeticion(int id) {
         String sql = "DELETE FROM peticiones WHERE id_peticiones = ?";
@@ -273,7 +277,7 @@ public class PeticionesController {
             mostrarAlerta("Error al eliminar", "Hubo un error al eliminar la petición.");
         }
     }
-
+//carga el prestamo y lo incluye en la tabla 
     private void cargarPrestamos() {
         ObservableList<Prestamo> listaPrestamos = FXCollections.observableArrayList();
         String url = "jdbc:mysql://localhost:3306/eti";
@@ -329,7 +333,7 @@ public class PeticionesController {
             irAVista("/DAM/ETI/Prestamo.fxml", event);  
         } 
     }
-    //método para eliminar peticiones de más de tres días 
+    //método para eliminar peticiones que no pasen a prestamo en el mismo día 
     @FXML
     private void EliminarPeticionesAntiguas(ActionEvent event) {
         Alert confirmacion = new Alert(AlertType.CONFIRMATION);
@@ -339,7 +343,8 @@ public class PeticionesController {
 
         Optional<ButtonType> result = confirmacion.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            String sql = "DELETE FROM peticiones WHERE fecha_peticion < DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
+            String sql = "DELETE FROM peticiones WHERE DATE(fecha_peticion) = CURDATE() - INTERVAL 1 DAY"
+            		+ "";
             String url = "jdbc:mysql://localhost:3306/eti";
 
             try (Connection connection = DriverManager.getConnection(url, "root", "");

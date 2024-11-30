@@ -19,6 +19,7 @@ import Modelo.Alumno;
 import sql.conexion;
 
 public class AlumnoGestionController {
+	//controlador para la gestion de alumnos del panel del admin
 
     @FXML
     private TextField txtBuscarID;
@@ -67,7 +68,7 @@ public class AlumnoGestionController {
                         resultSet.getString("nombre_madre_padre"),
                         resultSet.getString("nombre_tutor"),
                         resultSet.getString("usuario"),
-                        null // No se usa el password aquí
+                        null 
                 );
                 listaAlumnos.add(alumno);
             }
@@ -77,7 +78,7 @@ public class AlumnoGestionController {
         }
         tablaUsuarios.setItems(listaAlumnos);
     }
-
+//metodo para buscar por id 
     @FXML
     void buscarPorID() {
         String buscarID = txtBuscarID.getText();
@@ -205,7 +206,7 @@ public class AlumnoGestionController {
             if (response == ButtonType.OK) {
                 eliminarAlumno(alumnoSeleccionado.getId());
                 
-                // Alerta de eliminación exitosa
+                // Alerta de eliminación correcta
                 Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                 alerta.setTitle("Eliminación correcta");
                 alerta.setHeaderText(null);
@@ -217,7 +218,7 @@ public class AlumnoGestionController {
             cargarDatos();
         });
     }
-
+//metodo para borrar un alumno
     private void eliminarAlumno(int id) {
         String sql = "DELETE FROM alumnos WHERE id = ?";
         try (Connection connection = conexion.dameConexion();
